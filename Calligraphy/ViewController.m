@@ -18,19 +18,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-    NSString * str = @"帝";
+    NSString * str = @"raky.asp?zi=帝";
     
-    str = [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    NSLog(@"%@",str);
-    
-//    NSURL * url = [NSURL ];
-    
-    
-    
-    [Service get:@"" parameters:nil withBlock:^(NSArray *posts, NSError *error) {
-       
-        
+    [Service get:[Service encodingBKStr:str] parameters:nil withBlock:^(NSArray *posts, NSError *error) {
+
     }];
     
 //    [QMService qm_RegistPostDic:@{@"mobile": @"18813863261",

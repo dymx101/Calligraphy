@@ -8,7 +8,7 @@
 
 #import "Service.h"
 
-static NSString * const kBaseURLString = @"http://shufa.m.supfree.net/raky.asp?zi=%B5%DB";
+static NSString * const kBaseURLString = @"http://shufa.m.supfree.net/";
 
 @implementation Service
 
@@ -19,12 +19,23 @@ static NSString * const kBaseURLString = @"http://shufa.m.supfree.net/raky.asp?z
         _sharedClient = [[Service alloc] initWithBaseURL:[NSURL URLWithString:kBaseURLString]];
         //        _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
         //申明返回的结果是json类型
-//        _sharedClient.responseSerializer = [AFHTTPResponseSerializer serializer];
-//        
+        _sharedClient.responseSerializer = [AFHTTPResponseSerializer serializer];
 //        _sharedClient.requestSerializer=[AFHTTPRequestSerializer serializer];
     });
     
     return _sharedClient;
+}
+#pragma mark - 数据转换成中文
++ (NSString *)encodingGBKFromData:(id)aData {
+    NSStringEncoding gbkEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    NSString *string = [[NSString alloc] initWithData:aData encoding:gbkEncoding];
+    return string;
+}
+#pragma mark - 中文转换成GBK码
++ (NSString *)encodingBKStr:(NSString *)aStr {
+    NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    aStr = [aStr stringByAddingPercentEscapesUsingEncoding:enc];
+    return aStr;
 }
 
 
@@ -32,21 +43,19 @@ static NSString * const kBaseURLString = @"http://shufa.m.supfree.net/raky.asp?z
                     parameters:(id)parameters
                      withBlock:(void (^)(NSArray *posts, NSError *error))block {
     
-    NSLog(@"asdf:");
     
     return [[Service sharedClient] GET:aUrl
                             parameters:parameters
                                success:^(NSURLSessionDataTask *task, id responseObject) {
+                                   NSString * responseString = [self encodingGBKFromData:responseObject];
                                    
-                                   NSLog(@"%s:%@",__func__,responseObject);
+                                   
+                                   NSLog(@"%@",responseString);
                                    
                                } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                   
+                                   NSLog(@"%@",error);
                                }];
-    
-    
 }
-
 
 
 @end

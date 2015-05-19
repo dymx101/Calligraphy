@@ -14,6 +14,16 @@
 
 + (instancetype)sharedClient;
 
+/**
+ *  数据转换成中文
+ */
++ (NSString *)encodingGBKFromData:(id)aData;
+/**
+ *  中文转换成GBK码
+ */
++ (NSString *)encodingBKStr:(NSString *)aStr;
+
+
 + (NSURLSessionDataTask *) get:(NSString *)aUrl
                     parameters:(id)parameters
                      withBlock:(void (^)(NSArray *posts, NSError *error))block;
