@@ -1,0 +1,184 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+        <meta name="viewport" content="user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1,target-densitydpi=device-dpi "/>
+        <meta http-equiv="Cache-Control" content="no-siteapp"/>
+        <title>帝_书法字典查询</title>
+        <link rel="stylesheet" type="text/css" media="all" href="http://www.supfree.net/images/mstyle.css"/>
+        <meta name="description" content="帝,书法,字帖,篆书,草书,行书,楷书,隶书,古代,碑文,书法家,字典,查询"/>
+        <meta name="keywords" content="帝,书法,字帖,篆书,草书,行书,楷书,隶书,古代,碑文,书法家,字典,查询"/>
+        <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"/>
+    </head>
+    
+    <body class="custom-background">
+        <div id="wrapper">
+            <div id="header">
+                <h1>
+                    <a href="http://m.supfree.net/">
+                        <span class="blog-name">
+                            在线查询网-手机版
+                        </span>
+                        <span class="blog-title">
+                        </span>
+                    </a>
+                </h1>
+            </div>
+            <div class="browse">
+                现在位置:
+                <a title="返回首页" href="http://m.supfree.net/">
+                    在线查询网
+                </a>
+                &gt;
+                <a href="http://shufa.m.supfree.net/">
+                    书法字典查询
+                </a>
+                &gt; 帝
+            </div>
+            <div class="navigation">
+                <script language="javascript" src="http://www.supfree.net/images/mtop.js"><![CDATA[ ]]></script>
+            </div>
+            <div id="main">
+                <h1>帝</h1>
+                <hr/>
+                <style><![CDATA[
+                    .shuimg img{height:100px;width:100px;background-image:url(bg.jpg);border:1px solid #999999;cursor:pointer;}
+                    .shuimg li{height:130px;text-align:center;}
+                    .wenk a{padding:1px;width:32px;height:32px;border:1px solid #999999;margin:0 0 5px 5px;font-size:20px;display:block;text-align:center;float:left;}
+                ]]></style>
+                <div class="cdiv" align="center">
+                    <form name="shufa" action="raky.asp">
+                        <p class="csearch">请输入要查询汉字（1个）：<input type="text" size="20" name="zi" class="cinput" onkeyup="value=value.replace(/[ -~]/g,'')" on-keydown="if(event.keyCode==13)event.keyCode=9"/>
+                            <input type="image" src="http://www.supfree.net/images/search.gif"/>
+                        </p>
+                    </form>
+                </div>
+                <div class="cdiv">
+                    <span class="bgreen botitle18">
+                        “帝”字  楷书书法
+                    </span>
+                    <ul class="oul shuimg">
+                        <li><a target="_blank" href="k/109986.gif"><img alt="元倪墓志 - 楷书 - “帝”" src="k/109986.gif"/></a><br/><a title="“元倪墓志” 书法" href="chay.asp?zid=%D4%AA%C4%DF%C4%B9%D6%BE">元倪墓志</a></li>
+                        <li><a target="_blank" href="k/109987.gif"><img alt="元珍墓志 - 楷书 - “帝”" src="k/109987.gif"/></a><br/><a title="“元珍墓志” 书法" href="chay.asp?zid=%D4%AA%D5%E4%C4%B9%D6%BE">元珍墓志</a></li>
+                        <li><a target="_blank" href="k/109975.gif"><img alt="北海王造像 - 楷书 - “帝”" src="k/109975.gif"/></a><br/><a title="“北海王造像” 书法" href="chay.asp?zid=%B1%B1%BA%A3%CD%F5%D4%EC%CF%F1">北海王造像</a></li>
+                        <li><a target="_blank" href="k/109988.gif"><img alt="张猛龙碑 - 楷书 - “帝”" src="k/109988.gif"/></a><br/><a title="“张猛龙碑” 书法" href="chay.asp?zid=%D5%C5%C3%CD%C1%FA%B1%AE">张猛龙碑</a></li>
+                        <li><a target="_blank" href="k/109979.gif"><img alt="柳公权 - 楷书 - “帝”" src="k/109979.gif"/></a><br/><a title="“柳公权” 书法" href="chay.asp?zid=%C1%F8%B9%AB%C8%A8">柳公权</a></li>
+                        <li><a target="_blank" href="k/109980.gif"><img alt="柳公权 - 楷书 - “帝”" src="k/109980.gif"/></a><br/><a title="“柳公权” 书法" href="chay.asp?zid=%C1%F8%B9%AB%C8%A8">柳公权</a></li>
+                        <li><a target="_blank" href="k/109981.gif"><img alt="欧阳修 - 楷书 - “帝”" src="k/109981.gif"/></a><br/><a title="“欧阳修” 书法" href="chay.asp?zid=%C5%B7%D1%F4%D0%DE">欧阳修</a></li>
+                        <li><a target="_blank" href="k/109976.gif"><img alt="蔡襄 - 楷书 - “帝”" src="k/109976.gif"/></a><br/><a title="“蔡襄” 书法" href="chay.asp?zid=%B2%CC%CF%E5">蔡襄</a></li>
+                        <li><a target="_blank" href="k/109984.gif"><img alt="虞世南 - 楷书 - “帝”" src="k/109984.gif"/></a><br/><a title="“虞世南” 书法" href="chay.asp?zid=%D3%DD%CA%C0%C4%CF">虞世南</a></li>
+                        <li><a target="_blank" href="k/109985.gif"><img alt="虞世南 - 楷书 - “帝”" src="k/109985.gif"/></a><br/><a title="“虞世南” 书法" href="chay.asp?zid=%D3%DD%CA%C0%C4%CF">虞世南</a></li>
+                        <li><a target="_blank" href="k/109977.gif"><img alt="褚遂良 - 楷书 - “帝”" src="k/109977.gif"/></a><br/><a title="“褚遂良” 书法" href="chay.asp?zid=%F1%D2%CB%EC%C1%BC">褚遂良</a></li>
+                        <li><a target="_blank" href="k/109978.gif"><img alt="褚遂良 - 楷书 - “帝”" src="k/109978.gif"/></a><br/><a title="“褚遂良” 书法" href="chay.asp?zid=%F1%D2%CB%EC%C1%BC">褚遂良</a></li>
+                        <li><a target="_blank" href="k/109982.gif"><img alt="颜真卿 - 楷书 - “帝”" src="k/109982.gif"/></a><br/><a title="“颜真卿” 书法" href="chay.asp?zid=%D1%D5%D5%E6%C7%E4">颜真卿</a></li>
+                        <li><a target="_blank" href="k/109983.gif"><img alt="颜真卿 - 楷书 - “帝”" src="k/109983.gif"/></a><br/><a title="“颜真卿” 书法" href="chay.asp?zid=%D1%D5%D5%E6%C7%E4">颜真卿</a></li>
+                    </ul>
+                    <div style="clear:both;"/>
+                </div>
+                <div class="cdiv">
+                    <span class="bgreen botitle18">
+                        “帝”字  隶书书法
+                    </span>
+                    <ul class="oul shuimg">
+                        <li><a target="_blank" href="l/84434.gif"><img alt="伊秉绶 - 隶书 - “帝”" src="l/84434.gif"/></a><br/><a title="“伊秉绶” 书法" href="chay.asp?zid=%D2%C1%B1%FC%E7%B7">伊秉绶</a></li>
+                        <li><a target="_blank" href="l/84416.gif"><img alt="何绍基 - 隶书 - “帝”" src="l/84416.gif"/></a><br/><a title="“何绍基” 书法" href="chay.asp?zid=%BA%CE%C9%DC%BB%F9">何绍基</a></li>
+                        <li><a target="_blank" href="l/84418.gif"><img alt="华山神庙碑 - 隶书 - “帝”" src="l/84418.gif"/></a><br/><a title="“华山神庙碑” 书法" href="chay.asp?zid=%BB%AA%C9%BD%C9%F1%C3%ED%B1%AE">华山神庙碑</a></li>
+                        <li><a target="_blank" href="l/84431.gif"><img alt="史晨碑 - 隶书 - “帝”" src="l/84431.gif"/></a><br/><a title="“史晨碑” 书法" href="chay.asp?zid=%CA%B7%B3%BF%B1%AE">史晨碑</a></li>
+                        <li><a target="_blank" href="l/84432.gif"><img alt="唐玄宗 - 隶书 - “帝”" src="l/84432.gif"/></a><br/><a title="“唐玄宗” 书法" href="chay.asp?zid=%CC%C6%D0%FE%D7%DA">唐玄宗</a></li>
+                        <li><a target="_blank" href="l/84420.gif"><img alt="孔彪碑 - 隶书 - “帝”" src="l/84420.gif"/></a><br/><a title="“孔彪碑” 书法" href="chay.asp?zid=%BF%D7%B1%EB%B1%AE">孔彪碑</a></li>
+                        <li><a target="_blank" href="l/84415.gif"><img alt="桂馥 - 隶书 - “帝”" src="l/84415.gif"/></a><br/><a title="“桂馥” 书法" href="chay.asp?zid=%B9%F0%F0%A5">桂馥</a></li>
+                        <li><a target="_blank" href="l/84433.gif"><img alt="桐柏庙碑 - 隶书 - “帝”" src="l/84433.gif"/></a><br/><a title="“桐柏庙碑” 书法" href="chay.asp?zid=%CD%A9%B0%D8%C3%ED%B1%AE">桐柏庙碑</a></li>
+                        <li><a target="_blank" href="l/84417.gif"><img alt="衡方碑 - 隶书 - “帝”" src="l/84417.gif"/></a><br/><a title="“衡方碑” 书法" href="chay.asp?zid=%BA%E2%B7%BD%B1%AE">衡方碑</a></li>
+                        <li><a target="_blank" href="l/84421.gif"><img alt="马王堆帛书 - 隶书 - “帝”" src="l/84421.gif"/></a><br/><a title="“马王堆帛书” 书法" href="chay.asp?zid=%C2%ED%CD%F5%B6%D1%B2%AF%CA%E9">马王堆帛书</a></li>
+                        <li><a target="_blank" href="l/84422.gif"><img alt="马王堆帛书 - 隶书 - “帝”" src="l/84422.gif"/></a><br/><a title="“马王堆帛书” 书法" href="chay.asp?zid=%C2%ED%CD%F5%B6%D1%B2%AF%CA%E9">马王堆帛书</a></li>
+                        <li><a target="_blank" href="l/84423.gif"><img alt="马王堆帛书 - 隶书 - “帝”" src="l/84423.gif"/></a><br/><a title="“马王堆帛书” 书法" href="chay.asp?zid=%C2%ED%CD%F5%B6%D1%B2%AF%CA%E9">马王堆帛书</a></li>
+                        <li><a target="_blank" href="l/84424.gif"><img alt="马王堆帛书 - 隶书 - “帝”" src="l/84424.gif"/></a><br/><a title="“马王堆帛书” 书法" href="chay.asp?zid=%C2%ED%CD%F5%B6%D1%B2%AF%CA%E9">马王堆帛书</a></li>
+                        <li><a target="_blank" href="l/84425.gif"><img alt="马王堆帛书 - 隶书 - “帝”" src="l/84425.gif"/></a><br/><a title="“马王堆帛书” 书法" href="chay.asp?zid=%C2%ED%CD%F5%B6%D1%B2%AF%CA%E9">马王堆帛书</a></li>
+                        <li><a target="_blank" href="l/84426.gif"><img alt="马王堆帛书 - 隶书 - “帝”" src="l/84426.gif"/></a><br/><a title="“马王堆帛书” 书法" href="chay.asp?zid=%C2%ED%CD%F5%B6%D1%B2%AF%CA%E9">马王堆帛书</a></li>
+                        <li><a target="_blank" href="l/84427.gif"><img alt="马王堆帛书 - 隶书 - “帝”" src="l/84427.gif"/></a><br/><a title="“马王堆帛书” 书法" href="chay.asp?zid=%C2%ED%CD%F5%B6%D1%B2%AF%CA%E9">马王堆帛书</a></li>
+                        <li><a target="_blank" href="l/84428.gif"><img alt="马王堆帛书 - 隶书 - “帝”" src="l/84428.gif"/></a><br/><a title="“马王堆帛书” 书法" href="chay.asp?zid=%C2%ED%CD%F5%B6%D1%B2%AF%CA%E9">马王堆帛书</a></li>
+                        <li><a target="_blank" href="l/84429.gif"><img alt="马王堆帛书 - 隶书 - “帝”" src="l/84429.gif"/></a><br/><a title="“马王堆帛书” 书法" href="chay.asp?zid=%C2%ED%CD%F5%B6%D1%B2%AF%CA%E9">马王堆帛书</a></li>
+                        <li><a target="_blank" href="l/84430.gif"><img alt="马王堆帛书 - 隶书 - “帝”" src="l/84430.gif"/></a><br/><a title="“马王堆帛书” 书法" href="chay.asp?zid=%C2%ED%CD%F5%B6%D1%B2%AF%CA%E9">马王堆帛书</a></li>
+                        <li><a target="_blank" href="l/84419.gif"><img alt="黄葆戉 - 隶书 - “帝”" src="l/84419.gif"/></a><br/><a title="“黄葆戉” 书法" href="chay.asp?zid=%BB%C6%DD%E1%91%E0">黄葆戉</a></li>
+                    </ul>
+                    <div style="clear:both;"/>
+                </div>
+                <div class="cdiv">
+                    <span class="bgreen botitle18">
+                        “帝”字  篆书书法
+                    </span>
+                    <ul class="oul shuimg">
+                        <li><a target="_blank" href="z/2519.gif"><img alt="会稽刻石 - 篆书 - “帝”" src="z/2519.gif"/></a><br/><a title="“会稽刻石” 书法" href="chay.asp?zid=%BB%E1%BB%FC%BF%CC%CA%AF">会稽刻石</a></li>
+                        <li><a target="_blank" href="z/2521.gif"><img alt="吴大澄 - 篆书 - “帝”" src="z/2521.gif"/></a><br/><a title="“吴大澄” 书法" href="chay.asp?zid=%CE%E2%B4%F3%B3%CE">吴大澄</a></li>
+                        <li><a target="_blank" href="z/2520.gif"><img alt="吴昌硕 - 篆书 - “帝”" src="z/2520.gif"/></a><br/><a title="“吴昌硕” 书法" href="chay.asp?zid=%CE%E2%B2%FD%CB%B6">吴昌硕</a></li>
+                        <li><a target="_blank" href="z/2522.gif"><img alt="吴让之 - 篆书 - “帝”" src="z/2522.gif"/></a><br/><a title="“吴让之” 书法" href="chay.asp?zid=%CE%E2%C8%C3%D6%AE">吴让之</a></li>
+                    </ul>
+                    <div style="clear:both;"/>
+                </div>
+                <div class="cdiv">
+                    <span class="bgreen botitle18">
+                        “帝”字  草书书法
+                    </span>
+                    <ul class="oul shuimg">
+                        <li><a target="_blank" href="c/148354.gif"><img alt="孙过庭 - 草书 - “帝”" src="c/148354.gif"/></a><br/><a title="“孙过庭” 书法" href="chay.asp?zid=%CB%EF%B9%FD%CD%A5">孙过庭</a></li>
+                        <li><a target="_blank" href="c/148367.gif"><img alt="张旭 - 草书 - “帝”" src="c/148367.gif"/></a><br/><a title="“张旭” 书法" href="chay.asp?zid=%D5%C5%D0%F1">张旭</a></li>
+                        <li><a target="_blank" href="c/148366.gif"><img alt="张瑞图 - 草书 - “帝”" src="c/148366.gif"/></a><br/><a title="“张瑞图” 书法" href="chay.asp?zid=%D5%C5%C8%F0%CD%BC">张瑞图</a></li>
+                        <li><a target="_blank" href="c/148364.gif"><img alt="徐伯清 - 草书 - “帝”" src="c/148364.gif"/></a><br/><a title="“徐伯清” 书法" href="chay.asp?zid=%D0%EC%B2%AE%C7%E5">徐伯清</a></li>
+                        <li><a target="_blank" href="c/148365.gif"><img alt="徐伯清 - 草书 - “帝”" src="c/148365.gif"/></a><br/><a title="“徐伯清” 书法" href="chay.asp?zid=%D0%EC%B2%AE%C7%E5">徐伯清</a></li>
+                        <li><a target="_blank" href="c/148349.gif"><img alt="怀素 - 草书 - “帝”" src="c/148349.gif"/></a><br/><a title="“怀素” 书法" href="chay.asp?zid=%BB%B3%CB%D8">怀素</a></li>
+                        <li><a target="_blank" href="c/148350.gif"><img alt="怀素 - 草书 - “帝”" src="c/148350.gif"/></a><br/><a title="“怀素” 书法" href="chay.asp?zid=%BB%B3%CB%D8">怀素</a></li>
+                        <li><a target="_blank" href="c/148351.gif"><img alt="敬世江 - 草书 - “帝”" src="c/148351.gif"/></a><br/><a title="“敬世江” 书法" href="chay.asp?zid=%BE%B4%CA%C0%BD%AD">敬世江</a></li>
+                        <li><a target="_blank" href="c/148362.gif"><img alt="文征明 - 草书 - “帝”" src="c/148362.gif"/></a><br/><a title="“文征明” 书法" href="chay.asp?zid=%CE%C4%D5%F7%C3%F7">文征明</a></li>
+                        <li><a target="_blank" href="c/148370.gif"><img alt="智永 - 草书 - “帝”" src="c/148370.gif"/></a><br/><a title="“智永” 书法" href="chay.asp?zid=%D6%C7%D3%C0">智永</a></li>
+                        <li><a target="_blank" href="c/148352.gif"><img alt="毛泽东 - 草书 - “帝”" src="c/148352.gif"/></a><br/><a title="“毛泽东” 书法" href="chay.asp?zid=%C3%AB%D4%F3%B6%AB">毛泽东</a></li>
+                        <li><a target="_blank" href="c/148361.gif"><img alt="王献之 - 草书 - “帝”" src="c/148361.gif"/></a><br/><a title="“王献之” 书法" href="chay.asp?zid=%CD%F5%CF%D7%D6%AE">王献之</a></li>
+                        <li><a target="_blank" href="c/148355.gif"><img alt="王羲之 - 草书 - “帝”" src="c/148355.gif"/></a><br/><a title="“王羲之” 书法" href="chay.asp?zid=%CD%F5%F4%CB%D6%AE">王羲之</a></li>
+                        <li><a target="_blank" href="c/148356.gif"><img alt="王羲之 - 草书 - “帝”" src="c/148356.gif"/></a><br/><a title="“王羲之” 书法" href="chay.asp?zid=%CD%F5%F4%CB%D6%AE">王羲之</a></li>
+                        <li><a target="_blank" href="c/148357.gif"><img alt="王羲之 - 草书 - “帝”" src="c/148357.gif"/></a><br/><a title="“王羲之” 书法" href="chay.asp?zid=%CD%F5%F4%CB%D6%AE">王羲之</a></li>
+                        <li><a target="_blank" href="c/148358.gif"><img alt="王羲之 - 草书 - “帝”" src="c/148358.gif"/></a><br/><a title="“王羲之” 书法" href="chay.asp?zid=%CD%F5%F4%CB%D6%AE">王羲之</a></li>
+                        <li><a target="_blank" href="c/148359.gif"><img alt="王羲之 - 草书 - “帝”" src="c/148359.gif"/></a><br/><a title="“王羲之” 书法" href="chay.asp?zid=%CD%F5%F4%CB%D6%AE">王羲之</a></li>
+                        <li><a target="_blank" href="c/148360.gif"><img alt="王羲之 - 草书 - “帝”" src="c/148360.gif"/></a><br/><a title="“王羲之” 书法" href="chay.asp?zid=%CD%F5%F4%CB%D6%AE">王羲之</a></li>
+                        <li><a target="_blank" href="c/148371.gif"><img alt="祝枝山 - 草书 - “帝”" src="c/148371.gif"/></a><br/><a title="“祝枝山” 书法" href="chay.asp?zid=%D7%A3%D6%A6%C9%BD">祝枝山</a></li>
+                        <li><a target="_blank" href="c/148353.gif"><img alt="米芾 - 草书 - “帝”" src="c/148353.gif"/></a><br/><a title="“米芾” 书法" href="chay.asp?zid=%C3%D7%DC%C0">米芾</a></li>
+                        <li><a target="_blank" href="c/148347.gif"><img alt="褚遂良 - 草书 - “帝”" src="c/148347.gif"/></a><br/><a title="“褚遂良” 书法" href="chay.asp?zid=%F1%D2%CB%EC%C1%BC">褚遂良</a></li>
+                        <li><a target="_blank" href="c/148348.gif"><img alt="贺知章 - 草书 - “帝”" src="c/148348.gif"/></a><br/><a title="“贺知章” 书法" href="chay.asp?zid=%BA%D8%D6%AA%D5%C2">贺知章</a></li>
+                        <li><a target="_blank" href="c/148369.gif"><img alt="赵佶 - 草书 - “帝”" src="c/148369.gif"/></a><br/><a title="“赵佶” 书法" href="chay.asp?zid=%D5%D4%D9%A5">赵佶</a></li>
+                        <li><a target="_blank" href="c/148368.gif"><img alt="赵构 - 草书 - “帝”" src="c/148368.gif"/></a><br/><a title="“赵构” 书法" href="chay.asp?zid=%D5%D4%B9%B9">赵构</a></li>
+                        <li><a target="_blank" href="c/148363.gif"><img alt="鲜于枢 - 草书 - “帝”" src="c/148363.gif"/></a><br/><a title="“鲜于枢” 书法" href="chay.asp?zid=%CF%CA%D3%DA%CA%E0">鲜于枢</a></li>
+                    </ul>
+                    <div style="clear:both;"/>
+                </div>
+                <div class="cdiv">
+                    <span class="bgreen botitle18">
+                        “帝”字  行书书法
+                    </span>
+                    <ul class="oul shuimg">
+                        <li><a target="_blank" href="x/25292.gif"><img alt="何绍基 - 行书 - “帝”" src="x/25292.gif"/></a><br/><a title="“何绍基” 书法" href="chay.asp?zid=%BA%CE%C9%DC%BB%F9">何绍基</a></li>
+                        <li><a target="_blank" href="x/25291.gif"><img alt="古人 - 行书 - “帝”" src="x/25291.gif"/></a><br/><a title="“古人” 书法" href="chay.asp?zid=%B9%C5%C8%CB">古人</a></li>
+                        <li><a target="_blank" href="x/25301.gif"><img alt="唐寅 - 行书 - “帝”" src="x/25301.gif"/></a><br/><a title="“唐寅” 书法" href="chay.asp?zid=%CC%C6%D2%FA">唐寅</a></li>
+                        <li><a target="_blank" href="x/25293.gif"><img alt="敬世江 - 行书 - “帝”" src="x/25293.gif"/></a><br/><a title="“敬世江” 书法" href="chay.asp?zid=%BE%B4%CA%C0%BD%AD">敬世江</a></li>
+                        <li><a target="_blank" href="x/25298.gif"><img alt="明人 - 行书 - “帝”" src="x/25298.gif"/></a><br/><a title="“明人” 书法" href="chay.asp?zid=%C3%F7%C8%CB">明人</a></li>
+                        <li><a target="_blank" href="x/25295.gif"><img alt="李邕 - 行书 - “帝”" src="x/25295.gif"/></a><br/><a title="“李邕” 书法" href="chay.asp?zid=%C0%EE%E7%DF">李邕</a></li>
+                        <li><a target="_blank" href="x/25294.gif"><img alt="柯九思 - 行书 - “帝”" src="x/25294.gif"/></a><br/><a title="“柯九思” 书法" href="chay.asp?zid=%BF%C2%BE%C5%CB%BC">柯九思</a></li>
+                        <li><a target="_blank" href="x/25299.gif"><img alt="欧阳询 - 行书 - “帝”" src="x/25299.gif"/></a><br/><a title="“欧阳询” 书法" href="chay.asp?zid=%C5%B7%D1%F4%D1%AF">欧阳询</a></li>
+                        <li><a target="_blank" href="x/25304.gif"><img alt="王献之 - 行书 - “帝”" src="x/25304.gif"/></a><br/><a title="“王献之” 书法" href="chay.asp?zid=%CD%F5%CF%D7%D6%AE">王献之</a></li>
+                        <li><a target="_blank" href="x/25302.gif"><img alt="王羲之 - 行书 - “帝”" src="x/25302.gif"/></a><br/><a title="“王羲之” 书法" href="chay.asp?zid=%CD%F5%F4%CB%D6%AE">王羲之</a></li>
+                        <li><a target="_blank" href="x/25303.gif"><img alt="王羲之 - 行书 - “帝”" src="x/25303.gif"/></a><br/><a title="“王羲之” 书法" href="chay.asp?zid=%CD%F5%F4%CB%D6%AE">王羲之</a></li>
+                        <li><a target="_blank" href="x/25296.gif"><img alt="米芾 - 行书 - “帝”" src="x/25296.gif"/></a><br/><a title="“米芾” 书法" href="chay.asp?zid=%C3%D7%DC%C0">米芾</a></li>
+                        <li><a target="_blank" href="x/25297.gif"><img alt="米芾 - 行书 - “帝”" src="x/25297.gif"/></a><br/><a title="“米芾” 书法" href="chay.asp?zid=%C3%D7%DC%C0">米芾</a></li>
+                        <li><a target="_blank" href="x/25300.gif"><img alt="苏轼 - 行书 - “帝”" src="x/25300.gif"/></a><br/><a title="“苏轼” 书法" href="chay.asp?zid=%CB%D5%E9%F8">苏轼</a></li>
+                    </ul>
+                    <div style="clear:both;"/>
+                </div>
+                
+            </div>
+            
+            <div class="navigation">
+                <script language="javascript" src="http://www.supfree.net/images/mbottom.js"><![CDATA[ ]]></script>
+            </div>
+            <div class="footer_content">
+                <a class="bblue" href="http://shufa.supfree.net/raky.asp?zi=%B5%DB">电脑版</a> | 手机版
+            </div>
+        </div>
+    </body>
+</html>
