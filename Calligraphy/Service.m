@@ -56,6 +56,28 @@ static NSString * const kBaseURLString = @"http://shufa.m.supfree.net/";
                                    NSLog(@"%@",error);
                                }];
 }
-
+//- (IBAction)startXMLParsing:(id)sender {
+//    self.textView.text = @"";
+//    NSString *path = [[NSBundle mainBundle]pathForResource:@"xml" ofType:@"xml"];
+//    GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithData:[NSData dataWithContentsOfFile:path] encoding:NSUTF8StringEncoding  error:NULL];
+//    if (doc) {
+//        [self print:@"\nParse XML with XPath andd print out every employe:\n\n"];
+//        NSArray *employees = [doc nodesForXPath:@"//div[@class='cdiv']" error:NULL];
+//        //        NSLog(@"%@",employees);
+//        for (GDataXMLElement *employe in employees) {
+//            //            [self print:[employe stringValue]];[self print:@"\n"];
+//            //            NSLog(@"%@",[employe stringValue]);
+//            
+//            NSArray *names = [employe elementsForName:@"ul"];
+//            if (names.count > 0) {
+//                
+//                //                GDataXMLElement *firstName = (GDataXMLElement *) [names objectAtIndex:0];
+//                ////                name = firstName.stringValue;
+//                //                NSLog(@"name is: %@",firstName.stringValue);
+//            }
+//            
+//        }
+//    }
+//}
 
 @end
