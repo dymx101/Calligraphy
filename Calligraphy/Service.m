@@ -7,7 +7,6 @@
 //
 
 #import "Service.h"
-
 static NSString * const kBaseURLString = @"http://shufa.m.supfree.net/";
 
 @implementation Service
@@ -47,37 +46,78 @@ static NSString * const kBaseURLString = @"http://shufa.m.supfree.net/";
     return [[Service sharedClient] GET:aUrl
                             parameters:parameters
                                success:^(NSURLSessionDataTask *task, id responseObject) {
-                                   NSString * responseString = [self encodingGBKFromData:responseObject];
                                    
-                                   
-                                   NSLog(@"%@",responseString);
+                                   block([self listFromData:responseObject], nil);
                                    
                                } failure:^(NSURLSessionDataTask *task, NSError *error) {
                                    NSLog(@"%@",error);
                                }];
 }
-//- (IBAction)startXMLParsing:(id)sender {
-//    self.textView.text = @"";
-//    NSString *path = [[NSBundle mainBundle]pathForResource:@"xml" ofType:@"xml"];
-//    GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithData:[NSData dataWithContentsOfFile:path] encoding:NSUTF8StringEncoding  error:NULL];
-//    if (doc) {
-//        [self print:@"\nParse XML with XPath andd print out every employe:\n\n"];
-//        NSArray *employees = [doc nodesForXPath:@"//div[@class='cdiv']" error:NULL];
-//        //        NSLog(@"%@",employees);
-//        for (GDataXMLElement *employe in employees) {
-//            //            [self print:[employe stringValue]];[self print:@"\n"];
-//            //            NSLog(@"%@",[employe stringValue]);
-//            
-//            NSArray *names = [employe elementsForName:@"ul"];
-//            if (names.count > 0) {
-//                
-//                //                GDataXMLElement *firstName = (GDataXMLElement *) [names objectAtIndex:0];
-//                ////                name = firstName.stringValue;
-//                //                NSLog(@"name is: %@",firstName.stringValue);
-//            }
-//            
-//        }
-//    }
-//}
+
++ (NSArray *)listFromData:(id)aData {
+    
+    NSMutableArray * mainArray = [NSMutableArray array];
+    
+    @autoreleasepool {
+        
+        GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithHTMLData:aData
+                                                                  encoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)
+                                                                     error:NULL];
+        if (doc) {
+            
+            NSArray *list = [doc nodesForXPath:@"//div[@class='cdiv']" error:NULL];
+            
+            for (GDataXMLElement * elements in list) {
+
+                NSArray *span = [elements elementsForName:@"span"];
+                if (span.count > 0) {
+                    
+                    DataItem * mainItem = [DataItem new];
+                    
+                    GDataXMLElement *firstName = (GDataXMLElement *) [span objectAtIndex:0];
+
+                    mainItem.typestr = firstName.stringValue;
+                    
+                    //具体图片
+                    NSArray *groups = [elements elementsForName:@"ul"];
+                    
+                    for (GDataXMLElement * item in groups) {
+                        
+                        NSArray *groups = [item elementsForName:@"li"];
+                        
+                        for (GDataXMLElement * aItem in groups) {
+                            
+                            DataItem * subItem = [DataItem new];
+                            
+                            NSArray *agroups = [aItem elementsForName:@"a"];
+                            
+                            for (GDataXMLElement *element  in agroups) {
+                                
+                                if ([element attributeForName:@"title"]) {
+                                    subItem.title = element.stringValue;
+                                    subItem.author = [[element attributeForName:@"title"] stringValue];
+                                    subItem.authorurl = [[element attributeForName:@"href"] stringValue];
+                                }else {
+                                    subItem.imgurlstr = [[element attributeForName:@"href"] stringValue];
+                                }
+                                
+                            }
+                            
+                            [mainItem.subArray addObject:subItem];
+                            
+                        }
+                        
+                    }
+                    
+                    [mainArray addObject:mainItem];
+                }
+
+            }
+        }
+    }
+
+    return mainArray;
+}
+
 
 @end
