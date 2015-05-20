@@ -47,7 +47,20 @@ install_resource()
       ;;
   esac
 }
-
+          install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
+                    install_resource "UMengSocial/umeng_ios_social_sdk_4.2.2_arm64_custom/UMSocial_Sdk_4.2.2/UMSocialSDKResourcesNew.bundle"
+                    install_resource "UMengSocial/umeng_ios_social_sdk_4.2.2_arm64_custom/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/TencentOpenApi_IOS_Bundle.bundle"
+                    install_resource "UMengSocial/umeng_ios_social_sdk_4.2.2_arm64_custom/UMSocial_Sdk_4.2.2/SocialSDKXib/UMSCommentDetailController.xib"
+                    install_resource "UMengSocial/umeng_ios_social_sdk_4.2.2_arm64_custom/UMSocial_Sdk_4.2.2/SocialSDKXib/UMSCommentInputController.xib"
+                    install_resource "UMengSocial/umeng_ios_social_sdk_4.2.2_arm64_custom/UMSocial_Sdk_4.2.2/SocialSDKXib/UMSCommentInputControlleriPad.xib"
+                    install_resource "UMengSocial/umeng_ios_social_sdk_4.2.2_arm64_custom/UMSocial_Sdk_4.2.2/SocialSDKXib/UMShareEditViewController.xib"
+                    install_resource "UMengSocial/umeng_ios_social_sdk_4.2.2_arm64_custom/UMSocial_Sdk_4.2.2/SocialSDKXib/UMShareEditViewControlleriPad.xib"
+                    install_resource "UMengSocial/umeng_ios_social_sdk_4.2.2_arm64_custom/UMSocial_Sdk_4.2.2/SocialSDKXib/UMSLoginViewController.xib"
+                    install_resource "UMengSocial/umeng_ios_social_sdk_4.2.2_arm64_custom/UMSocial_Sdk_4.2.2/SocialSDKXib/UMSnsAccountViewController.xib"
+                    install_resource "UMengSocial/umeng_ios_social_sdk_4.2.2_arm64_custom/UMSocial_Sdk_4.2.2/SocialSDKXib/UMSShareListController.xib"
+                    install_resource "UMengSocial/umeng_ios_social_sdk_4.2.2_arm64_custom/UMSocial_Sdk_4.2.2/en.lproj"
+                    install_resource "UMengSocial/umeng_ios_social_sdk_4.2.2_arm64_custom/UMSocial_Sdk_4.2.2/zh-Hans.lproj"
+          
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 if [[ "${ACTION}" == "install" ]]; then
   rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${INSTALL_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
