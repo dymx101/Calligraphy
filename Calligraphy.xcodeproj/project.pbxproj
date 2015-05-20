@@ -47,6 +47,7 @@
 		FF27EB5E1B0AC6C100343E72 /* CalligraphyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalligraphyTests.m; sourceTree = "<group>"; };
 		FF27EB691B0AC91E00343E72 /* Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Service.h; sourceTree = "<group>"; };
 		FF27EB6A1B0AC91E00343E72 /* Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Service.m; sourceTree = "<group>"; };
+		FF68ACB81B0C2C5E00BAB3E7 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +127,7 @@
 			children = (
 				FF27EB431B0AC6C100343E72 /* Info.plist */,
 				FF27EB441B0AC6C100343E72 /* main.m */,
+				FF68ACB81B0C2C5E00BAB3E7 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -421,6 +423,8 @@
 			baseConfigurationReference = E961CE87BF9B9508FD214E88 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Calligraphy/PrefixHeader.pch";
 				INFOPLIST_FILE = Calligraphy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -432,6 +436,8 @@
 			baseConfigurationReference = 620D5961B838800D2FC67CCF /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Calligraphy/PrefixHeader.pch";
 				INFOPLIST_FILE = Calligraphy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
