@@ -38,12 +38,12 @@ static NSString * const kBaseURLString = @"http://shufa.m.supfree.net/";
 }
 
 
-+ (NSURLSessionDataTask *) get:(NSString *)aUrl
++ (NSURLSessionDataTask *) SearchText:(NSString *)aSearch
                     parameters:(id)parameters
                      withBlock:(void (^)(NSArray *posts, NSError *error))block {
     
     
-    return [[Service sharedClient] GET:aUrl
+    return [[Service sharedClient] GET:aSearch
                             parameters:parameters
                                success:^(NSURLSessionDataTask *task, id responseObject) {
                                    

@@ -22,7 +22,7 @@
     
     NSString * str = @"raky.asp?zi=帝";
     
-    [Service get:[Service encodingBKStr:str] parameters:nil withBlock:^(NSArray *posts, NSError *error) {
+    [Service SearchText:[Service encodingBKStr:str] parameters:nil withBlock:^(NSArray *posts, NSError *error) {
 
         [_dataArray addObjectsFromArray:posts];
         

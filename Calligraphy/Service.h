@@ -27,8 +27,39 @@
 + (NSString *)encodingBKStr:(NSString *)aStr;
 
 
-+ (NSURLSessionDataTask *) get:(NSString *)aUrl
-                    parameters:(id)parameters
-                     withBlock:(void (^)(NSArray *posts, NSError *error))block;
+/**
+ *  默认初始页数据
+ *
+ *  @param block aDataDic = @[@"text":@{}, @"author":@{}]
+ */
++ (NSURLSessionDataTask *) DefaultTextAndAuthor:(void (^)(NSDictionary *dic, NSError *error))block;
+
+/**
+ *  获取page 文字
+ */
++ (NSURLSessionDataTask *) TextPage:(NSInteger)aPage
+                             withBlock:(void (^)(NSArray *array, NSError *error))block;
+
+/**
+ *  获取书法家列表
+ */
++ (NSURLSessionDataTask *) AllAuthor:(void (^)(NSArray *array, NSError *error))block;
+
+
+/**
+ *  搜索文字
+ */
++ (NSURLSessionDataTask *) SearchText:(NSString *)aSearch
+                             parameters:(id)parameters
+                              withBlock:(void (^)(NSArray *posts, NSError *error))block;
+
+/**
+ *  搜索书法家
+ */
++ (NSURLSessionDataTask *) SearchAuthor:(NSString *)aSearch
+                             parameters:(id)parameters
+                              withBlock:(void (^)(NSArray *posts, NSError *error))block;
+
+
 
 @end
