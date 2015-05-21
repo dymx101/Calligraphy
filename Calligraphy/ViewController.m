@@ -65,10 +65,12 @@ static NSString * const reuseIdentifier = @"GradientCell";
         titleLabel.text = item.title;
         titleLabel.font = [UIFont systemFontOfSize:30];
     }
+
+    float colorRed = (float)indexPath.row/((NSArray *)_dataArray[indexPath.section]).count;
     
-    
-    
-    cell.backgroundColor = [UIColor colorWithRed:((10 * indexPath.row) / 255.0) green:((20 * indexPath.row)/255.0) blue:((30 * indexPath.row)/255.0) alpha:1.0f];
+//    NSLog(@"%f",colorRed);
+//    cell.backgroundColor = [UIColor colorWithRed:1.0 green:10*indexPath.row/255.0 blue:10*indexPath.row/255.0 alpha:1];
+    cell.backgroundColor = [UIColor colorWithRed:colorRed green:colorRed blue:colorRed alpha:1.0f];
     return cell;
 }
 #pragma mark --UICollectionViewDelegateFlowLayout

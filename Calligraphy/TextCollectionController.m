@@ -80,9 +80,11 @@ static NSString * const reuseIdentifier = @"Cell";
 //    titleLabel.text = sutItem.title;
     UIImageView * imageView = (UIImageView *)[cell viewWithTag:111];
     
-    [imageView sd_setImageWithURL:[NSURL URLWithString:sutItem.imgurlstr] placeholderImage:nil];
+    @autoreleasepool {
+        [imageView sd_setImageWithURL:[NSURL URLWithString:sutItem.imgurlstr] placeholderImage:nil];
+    }
     
-    cell.backgroundColor = [UIColor colorWithRed:((10 * indexPath.row) / 255.0) green:((20 * indexPath.row)/255.0) blue:((30 * indexPath.row)/255.0) alpha:1.0f];
+    cell.backgroundColor = [UIColor colorWithRed:(1-(10 * indexPath.row) / 255.0) green:(1-(20 * indexPath.row)/255.0) blue:(1-(30 * indexPath.row)/255.0) alpha:1.0f];
     
     return cell;
 }

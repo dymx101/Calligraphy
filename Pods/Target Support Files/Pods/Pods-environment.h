@@ -84,12 +84,6 @@
 #define COCOAPODS_VERSION_MINOR_SDWebImage 7
 #define COCOAPODS_VERSION_PATCH_SDWebImage 2
 
-// SDWebImage-Category
-#define COCOAPODS_POD_AVAILABLE_SDWebImage_Category
-#define COCOAPODS_VERSION_MAJOR_SDWebImage_Category 1
-#define COCOAPODS_VERSION_MINOR_SDWebImage_Category 4
-#define COCOAPODS_VERSION_PATCH_SDWebImage_Category 0
-
 // SDWebImage/Core
 #define COCOAPODS_POD_AVAILABLE_SDWebImage_Core
 #define COCOAPODS_VERSION_MAJOR_SDWebImage_Core 3

@@ -47,12 +47,7 @@ install_resource()
       ;;
   esac
 }
-          install_resource "SDWebImage-Category/SDWebImage-Category/Resource/lk_click_image.png"
-                    install_resource "SDWebImage-Category/SDWebImage-Category/Resource/lk_click_image@2x.png"
-                    install_resource "SDWebImage-Category/SDWebImage-Category/Resource/lk_click_image@3x.png"
-                    install_resource "SDWebImage-Category/SDWebImage-Category/Resource/lk_noimage.png"
-                    install_resource "SDWebImage-Category/SDWebImage-Category/Resource/lk_noimage@2x.png"
-                    install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
+          install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
                     install_resource "UMengSocial/umeng_ios_social_sdk_4.2.2_arm64_custom/UMSocial_Sdk_4.2.2/UMSocialSDKResourcesNew.bundle"
                     install_resource "UMengSocial/umeng_ios_social_sdk_4.2.2_arm64_custom/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/TencentOpenApi_IOS_Bundle.bundle"
                     install_resource "UMengSocial/umeng_ios_social_sdk_4.2.2_arm64_custom/UMSocial_Sdk_4.2.2/SocialSDKXib/UMSCommentDetailController.xib"
