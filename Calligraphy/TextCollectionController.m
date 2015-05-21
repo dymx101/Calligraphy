@@ -8,7 +8,7 @@
 
 #import "TextCollectionController.h"
 #import "Service.h"
-
+#import <UIImageView+WebCache.h>
 @interface TextCollectionController ()
 
 @property (nonatomic, strong) NSMutableArray * dataArray;
@@ -78,12 +78,11 @@ static NSString * const reuseIdentifier = @"Cell";
     
 //    UILabel * titleLabel = (UILabel *)[cell viewWithTag:100];
 //    titleLabel.text = sutItem.title;
+    UIImageView * imageView = (UIImageView *)[cell viewWithTag:111];
     
+    [imageView sd_setImageWithURL:[NSURL URLWithString:sutItem.imgurlstr] placeholderImage:nil];
     
-    
-    
-    
-//    cell.backgroundColor = [UIColor colorWithRed:((10 * indexPath.row) / 255.0) green:((20 * indexPath.row)/255.0) blue:((30 * indexPath.row)/255.0) alpha:1.0f];
+    cell.backgroundColor = [UIColor colorWithRed:((10 * indexPath.row) / 255.0) green:((20 * indexPath.row)/255.0) blue:((30 * indexPath.row)/255.0) alpha:1.0f];
     
     return cell;
 }

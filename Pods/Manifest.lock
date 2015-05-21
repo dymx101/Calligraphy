@@ -29,6 +29,11 @@ PODS:
   - CocoaLumberjack/Extensions (2.0.0):
     - CocoaLumberjack/Default
   - GDataXML-HTML (1.2.0)
+  - SDWebImage (3.7.2):
+    - SDWebImage/Core (= 3.7.2)
+  - SDWebImage-Category (1.4):
+    - SDWebImage
+  - SDWebImage/Core (3.7.2)
   - SVProgressHUD (1.1.3)
   - UMengAnalytics-NO-IDFA (3.4.7)
   - UMengSocial (4.2.2)
@@ -37,6 +42,7 @@ DEPENDENCIES:
   - AFNetworking (~> 2.5.4)
   - CocoaLumberjack (~> 2.0.0)
   - GDataXML-HTML (~> 1.2.0)
+  - SDWebImage-Category (~> 1.4)
   - SVProgressHUD (~> 1.1.3)
   - UMengAnalytics-NO-IDFA (~> 3.4.7)
   - UMengSocial (~> 4.2.2)
@@ -45,6 +51,8 @@ SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   CocoaLumberjack: a6f77d987d65dc7ba86b0f84db7d0b9084f77bcb
   GDataXML-HTML: dac3692417e9fc612f8e12d8baae3706fccedcc8
+  SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
+  SDWebImage-Category: 1f1c00880a538f7faf5b726e1559cf1ca555c553
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   UMengAnalytics-NO-IDFA: 68a71671c10067315339fc3fd1283be416f02a8b
   UMengSocial: c608958b8aec7831d2a0964b62fc4cd1ed0bd9c3

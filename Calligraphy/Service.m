@@ -231,7 +231,7 @@ static NSString * const kBaseURLString = @"http://shufa.m.supfree.net/";
                                     subItem.author = [[element attributeForName:@"title"] stringValue];
                                     subItem.authorurl = [[element attributeForName:@"href"] stringValue];
                                 }else {
-                                    subItem.imgurlstr = [[element attributeForName:@"href"] stringValue];
+                                    subItem.imgurlstr = [NSString stringWithFormat:@"%@%@",kBaseURLString,[[element attributeForName:@"href"] stringValue]];
                                 }
                             }
                             [mainItem.subArray addObject:subItem];
