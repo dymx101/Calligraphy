@@ -23,7 +23,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [super viewDidLoad];
     
     // Uncomment the following line to preserve selection between presentations
-    self.clearsSelectionOnViewWillAppear = NO;
+//    self.clearsSelectionOnViewWillAppear = NO;
     
     self.title = _searchStr;
     // Register cell classes

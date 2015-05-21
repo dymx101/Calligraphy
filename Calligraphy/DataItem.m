@@ -19,6 +19,12 @@
     return self;
 }
 
+- (void)setImgurlstr:(NSString *)imgurlstr {
+    
+    _imgurlstr = [NSString stringWithFormat:@"%@%@",kBaseURLString,imgurlstr];
+    
+}
+
 + (id)itemFromData:(id)aData {
     
     DataItem * item = [[DataItem alloc]init];

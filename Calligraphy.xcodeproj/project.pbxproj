@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		26BB455BE12FB100E0C84D4D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20322D1FD533D47BE6336E97 /* libPods.a */; };
+		FF01936A1B0DCBDB00375ED0 /* AuthorCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0193691B0DCBDB00375ED0 /* AuthorCollectionController.m */; };
 		FF1471C61B0DA906008E39C9 /* TextCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1471C51B0DA906008E39C9 /* TextCollectionController.m */; };
 		FF27EB451B0AC6C100343E72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27EB441B0AC6C100343E72 /* main.m */; };
 		FF27EB481B0AC6C100343E72 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27EB471B0AC6C100343E72 /* AppDelegate.m */; };
@@ -34,6 +35,8 @@
 		20322D1FD533D47BE6336E97 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		620D5961B838800D2FC67CCF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E961CE87BF9B9508FD214E88 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FF0193681B0DCBDB00375ED0 /* AuthorCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorCollectionController.h; sourceTree = "<group>"; };
+		FF0193691B0DCBDB00375ED0 /* AuthorCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorCollectionController.m; sourceTree = "<group>"; };
 		FF1471C41B0DA906008E39C9 /* TextCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextCollectionController.h; sourceTree = "<group>"; };
 		FF1471C51B0DA906008E39C9 /* TextCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextCollectionController.m; sourceTree = "<group>"; };
 		FF27EB3F1B0AC6C100343E72 /* Calligraphy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calligraphy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +109,8 @@
 				FF27EB4A1B0AC6C100343E72 /* ViewController.m */,
 				FF1471C41B0DA906008E39C9 /* TextCollectionController.h */,
 				FF1471C51B0DA906008E39C9 /* TextCollectionController.m */,
+				FF0193681B0DCBDB00375ED0 /* AuthorCollectionController.h */,
+				FF0193691B0DCBDB00375ED0 /* AuthorCollectionController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -322,6 +327,7 @@
 				FF27EB4B1B0AC6C100343E72 /* ViewController.m in Sources */,
 				FF68ACBB1B0C3AB800BAB3E7 /* DataItem.m in Sources */,
 				FF27EB6B1B0AC91E00343E72 /* Service.m in Sources */,
+				FF01936A1B0DCBDB00375ED0 /* AuthorCollectionController.m in Sources */,
 				FF27EB481B0AC6C100343E72 /* AppDelegate.m in Sources */,
 				FF1471C61B0DA906008E39C9 /* TextCollectionController.m in Sources */,
 				FF27EB451B0AC6C100343E72 /* main.m in Sources */,

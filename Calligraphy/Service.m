@@ -7,7 +7,6 @@
 //
 
 #import "Service.h"
-static NSString * const kBaseURLString = @"http://shufa.m.supfree.net/";
 
 @implementation Service
 
@@ -134,7 +133,7 @@ static NSString * const kBaseURLString = @"http://shufa.m.supfree.net/";
 + (NSURLSessionDataTask *) TextPage:(NSInteger)aPage
                           withBlock:(void (^)(NSArray *array, NSError *error))block{
     
-    return [[Service sharedClient] GET:[NSString stringWithFormat:@"dity.asp?page=%ld",aPage]
+    return [[Service sharedClient] GET:[NSString stringWithFormat:@"dity.asp?page=%ld",(long)aPage]
                             parameters:nil
                                success:^(NSURLSessionDataTask *task, id responseObject) {
                                    
@@ -146,19 +145,60 @@ static NSString * const kBaseURLString = @"http://shufa.m.supfree.net/";
     return nil;
 }
 
-/**
- *  获取书法家列表
- */
+#pragma mark - 获取书法家列表
 + (NSURLSessionDataTask *) AllAuthor:(void (^)(NSArray *array, NSError *error))block{
     return [[Service sharedClient] GET:@"widy.asp"
                             parameters:nil
                                success:^(NSURLSessionDataTask *task, id responseObject) {
                                    
-                                   //                                   block([self makeDictionaryFrom:responseObject], nil);
+                                   block([self makeAllAuthor:responseObject], nil);
                                    
                                } failure:^(NSURLSessionDataTask *task, NSError *error) {
                                    block(nil, error);
                                }];
+}
+
++ (NSArray *)makeAllAuthor:(id)aData {
+    
+    
+//    NSLog(@"%@",[self encodingGBKFromData:aData]);
+    
+    NSMutableDictionary * mainDic = [NSMutableDictionary dictionary];
+    
+    GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithHTMLData:aData
+                                                              encoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)
+                                                                 error:NULL];
+    if (doc) {
+        
+         NSArray *list = [doc nodesForXPath:@"//div[@class='cdiv']" error:NULL];
+        for (GDataXMLElement * elements in list) {
+            
+            NSArray *span = [elements elementsForName:@"p"];
+            if (span.count > 0) {
+                
+//                NSLog(@"%@",span);
+                
+                
+                for (GDataXMLElement * item in span) {
+                    DDLogWarn(item.stringValue);
+                }
+                
+//                GDataXMLElement *firstName = (GDataXMLElement *) [span objectAtIndex:0];
+//                DDLogWarn(firstName.stringValue);
+                
+//                 NSArray *groups = [elements elementsForName:@"a"];
+//                for (GDataXMLElement * item in groups) {
+////                    NSLog(@"%@",item.stringValue);
+////                    DDLogError([[item attributeForName:@"title"] stringValue]);
+//                }
+                
+            }
+        }
+    }
+    
+    
+    
+    return nil;
 }
 
 #pragma mark - 搜索书法家
@@ -231,7 +271,7 @@ static NSString * const kBaseURLString = @"http://shufa.m.supfree.net/";
                                     subItem.author = [[element attributeForName:@"title"] stringValue];
                                     subItem.authorurl = [[element attributeForName:@"href"] stringValue];
                                 }else {
-                                    subItem.imgurlstr = [NSString stringWithFormat:@"%@%@",kBaseURLString,[[element attributeForName:@"href"] stringValue]];
+                                    subItem.imgurlstr = [[element attributeForName:@"href"] stringValue];
                                 }
                             }
                             [mainItem.subArray addObject:subItem];

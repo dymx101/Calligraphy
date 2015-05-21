@@ -36,6 +36,12 @@ static NSString * const reuseIdentifier = @"GradientCell";
         
         [_mainCollection reloadData];
     }];
+    
+    
+    
+    [Service AllAuthor:^(NSArray *array, NSError *error) {
+        
+    }];
 
 }
 //定义展示的UICollectionViewCell的个数
@@ -80,21 +86,19 @@ static NSString * const reuseIdentifier = @"GradientCell";
     DataItem * item = ((NSArray *)_dataArray[indexPath.section])[indexPath.row];
     
     if (item.author) {
-        // 计算文本的大小
         NSDictionary *attribute = @{NSFontAttributeName: [UIFont systemFontOfSize:16]};
         CGSize textSize = [item.author boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
-                                                    options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading // 文本绘制时的附加选项
-                                                 attributes:attribute        // 文字的属性
-                                                    context:nil].size; // context上下文。包括一些信息，例如如何调整字间距以及缩放。该对象包含的信息将用于文本绘制。该参数可为nil
+                                                    options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                                 attributes:attribute
+                                                    context:nil].size;
         
         return CGSizeMake(ceilf(textSize.width)+5, ceilf(textSize.height));
     }else {
-        // 计算文本的大小
         NSDictionary *attribute = @{NSFontAttributeName: [UIFont systemFontOfSize:30]};
         CGSize textSize = [item.title boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
-                                                    options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading // 文本绘制时的附加选项
-                                                 attributes:attribute        // 文字的属性
-                                                    context:nil].size; // context上下文。包括一些信息，例如如何调整字间距以及缩放。该对象包含的信息将用于文本绘制。该参数可为nil
+                                                    options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                                 attributes:attribute
+                                                    context:nil].size;
         
         return CGSizeMake(ceilf(textSize.height), ceilf(textSize.height));
     }

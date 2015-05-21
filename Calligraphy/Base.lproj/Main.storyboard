@@ -57,7 +57,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderView" id="oAM-WP-qmE">
-                                    <rect key="frame" x="0.0" y="64" width="600" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="35"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6A-WN-klQ">
@@ -97,11 +97,12 @@
                     <connections>
                         <outlet property="mainCollection" destination="bP1-mm-7hi" id="m1p-bG-3PN"/>
                         <segue destination="Nvg-Df-4lb" kind="push" identifier="TextCollectionController" id="UaO-G8-2Ez"/>
+                        <segue destination="EjO-dy-vMa" kind="push" identifier="AuthorCollectionController" id="a3j-sm-y8i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1262" y="427"/>
+            <point key="canvasLocation" x="1274" y="427"/>
         </scene>
         <!--Text Collection Controller-->
         <scene sceneID="Wcr-1m-T1I">
@@ -134,7 +135,7 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderView" id="0hX-sE-6TZ">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                         </collectionReusableView>
@@ -147,7 +148,42 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M6x-gP-paX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2037" y="427"/>
+            <point key="canvasLocation" x="2097" y="169"/>
+        </scene>
+        <!--Author Collection Controller-->
+        <scene sceneID="GAv-yl-eDc">
+            <objects>
+                <collectionViewController id="EjO-dy-vMa" customClass="AuthorCollectionController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="O7a-jT-qaN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qnW-0i-QNg">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jjF-wH-Nva">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="EjO-dy-vMa" id="M4X-XX-fsb"/>
+                            <outlet property="delegate" destination="EjO-dy-vMa" id="ww8-Dq-CAZ"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="6wb-s1-tOy"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SCE-aW-qgb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2097" y="914"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yep-3n-0Ko">
