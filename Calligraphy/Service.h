@@ -32,7 +32,7 @@
  *
  *  @param block aDataDic = @[@"text":@{}, @"author":@{}]
  */
-+ (NSURLSessionDataTask *) DefaultTextAndAuthor:(void (^)(NSDictionary *dic, NSError *error))block;
++ (NSURLSessionDataTask *) DefaultTextAndAuthor:(void (^)(NSMutableArray *array, NSError *error))block;
 
 /**
  *  获取page 文字
@@ -59,6 +59,13 @@
 + (NSURLSessionDataTask *) SearchAuthor:(NSString *)aSearch
                              parameters:(id)parameters
                               withBlock:(void (^)(NSArray *posts, NSError *error))block;
+
+/**
+ *  根据书法家.搜索文字
+ */
++ (NSURLSessionDataTask *) SearchText:(NSString *)aText AccordAuthor:(NSString *)aAuthor
+                           parameters:(id)parameters
+                            withBlock:(void (^)(NSArray *posts, NSError *error))block;
 
 
 

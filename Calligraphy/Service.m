@@ -42,13 +42,13 @@ static NSString * const kBaseURLString = @"http://shufa.m.supfree.net/";
  *
  *  @param block aDataDic = @[@"text":@{}, @"author":@{}]
  */
-+ (NSURLSessionDataTask *) DefaultTextAndAuthor:(void (^)(NSDictionary *dic, NSError *error))block{
++ (NSURLSessionDataTask *) DefaultTextAndAuthor:(void (^)(NSMutableArray *array, NSError *error))block{
     
     return [[Service sharedClient] GET:@"index.asp"
                             parameters:nil
                                success:^(NSURLSessionDataTask *task, id responseObject) {
                                    
-                                   block([self makeDictionaryFrom:responseObject], nil);
+                                   block([self defaultTextAuthorFrom:responseObject], nil);
                                    
                                } failure:^(NSURLSessionDataTask *task, NSError *error) {
                                    block(nil, error);
@@ -56,9 +56,11 @@ static NSString * const kBaseURLString = @"http://shufa.m.supfree.net/";
     
     return nil;
 }
-+ (NSDictionary *)makeDictionaryFrom:(id)aData {
++ (NSMutableArray *)defaultTextAuthorFrom:(id)aData {
     
 //    NSLog(@"%@",[self encodingGBKFromData:aData]);
+    
+    NSMutableArray * mainArray = [NSMutableArray arrayWithCapacity:2];
     
     @autoreleasepool {
         
@@ -67,39 +69,80 @@ static NSString * const kBaseURLString = @"http://shufa.m.supfree.net/";
                                                                      error:NULL];
         if (doc) {
             
-            NSArray *textList = [doc nodesForXPath:@"//div[@class='cdiv wenk']" error:NULL];
+            {   //默认的文字
+                NSArray *textList = [doc nodesForXPath:@"//div[@class='cdiv wenk']" error:NULL];
+                NSMutableArray * subArray = [NSMutableArray array];
+                [mainArray addObject:subArray];
+                
+                for (GDataXMLElement * elements in textList) {
+                    
+                    NSArray *agroups = [elements elementsForName:@"a"];
+                    for (GDataXMLElement *element  in agroups) {
+                        
+                        DataItem * subItem = [DataItem new];
+                        [subArray addObject:subItem];
+                        
+                        subItem.title = element.stringValue;
+                        subItem.authorurl = [[element attributeForName:@"href"] stringValue];
+                        
+                    }
 
-            for (GDataXMLElement * elements in textList) {
-                
-//                NSLog(@"%@",elements.stringValue);
-                
-                NSLog(@"%@",[[elements attributeForName:@"title"] stringValue]);
+                }
             }
             
-            NSArray *authorList = [doc nodesForXPath:@"//div[@class='cdiv']" error:NULL];
-            
-            for (GDataXMLElement * elements in authorList) {
+            {   //默认的书法家
+                NSArray *authorList = [doc nodesForXPath:@"//div[@class='cdiv']" error:NULL];
                 
-                NSLog(@"%@",elements.stringValue);
+                NSMutableArray * subArray = [NSMutableArray array];
+                [mainArray addObject:subArray];
                 
-//                NSLog(@"%@",[[elements attributeForName:@"title"] stringValue]);
+                for (GDataXMLElement * elements in authorList) {
+                    
+                    NSArray *groups = [elements elementsForName:@"ul"];
+                    for (GDataXMLElement * item in groups) {
+                        NSArray *groups = [item elementsForName:@"li"];
+                        for (GDataXMLElement * aItem in groups) {
+                            
+                            NSArray *agroups = [aItem elementsForName:@"a"];
+                            for (GDataXMLElement *element  in agroups) {
+                                
+                                DataItem * subItem = [DataItem new];
+                                [subArray addObject:subItem];
+                                
+                                subItem.author = [[element attributeForName:@"title"] stringValue];
+                                subItem.authorurl = [[element attributeForName:@"href"] stringValue];
+                                
+                            }
+                        }
+                    }
+
+                    
+                }
             }
         }
     }
     
-    
-    
-    return nil;
+    return mainArray;
 }
 
 
 
 
 /**
- *  获取page 文字
+ *  获取page 文字 列表
  */
 + (NSURLSessionDataTask *) TextPage:(NSInteger)aPage
                           withBlock:(void (^)(NSArray *array, NSError *error))block{
+    
+    return [[Service sharedClient] GET:[NSString stringWithFormat:@"dity.asp?page=%ld",aPage]
+                            parameters:nil
+                               success:^(NSURLSessionDataTask *task, id responseObject) {
+                                   
+//                                   block([self makeDictionaryFrom:responseObject], nil);
+                                   
+                               } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                   block(nil, error);
+                               }];
     return nil;
 }
 
@@ -107,14 +150,30 @@ static NSString * const kBaseURLString = @"http://shufa.m.supfree.net/";
  *  获取书法家列表
  */
 + (NSURLSessionDataTask *) AllAuthor:(void (^)(NSArray *array, NSError *error))block{
-    return nil;
+    return [[Service sharedClient] GET:@"widy.asp"
+                            parameters:nil
+                               success:^(NSURLSessionDataTask *task, id responseObject) {
+                                   
+                                   //                                   block([self makeDictionaryFrom:responseObject], nil);
+                                   
+                               } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                   block(nil, error);
+                               }];
 }
 
 #pragma mark - 搜索书法家
 + (NSURLSessionDataTask *) SearchAuthor:(NSString *)aSearch
                              parameters:(id)parameters
                               withBlock:(void (^)(NSArray *posts, NSError *error))block{
-    return nil;
+    return [[Service sharedClient] GET:aSearch
+                            parameters:nil
+                               success:^(NSURLSessionDataTask *task, id responseObject) {
+                                   
+                                   //                                   block([self makeDictionaryFrom:responseObject], nil);
+                                   
+                               } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                   block(nil, error);
+                               }];
 }
 
 #pragma mark - 搜索文字
@@ -122,7 +181,9 @@ static NSString * const kBaseURLString = @"http://shufa.m.supfree.net/";
                     parameters:(id)parameters
                      withBlock:(void (^)(NSArray *posts, NSError *error))block {
     
-    return [[Service sharedClient] GET:aSearch
+    
+    
+    return [[Service sharedClient] GET:[Service encodingBKStr:[NSString stringWithFormat:@"raky.asp?zi=%@",aSearch]]
                             parameters:parameters
                                success:^(NSURLSessionDataTask *task, id responseObject) {
                                    
@@ -154,26 +215,17 @@ static NSString * const kBaseURLString = @"http://shufa.m.supfree.net/";
                 if (span.count > 0) {
                     
                     DataItem * mainItem = [DataItem new];
-                    
                     GDataXMLElement *firstName = (GDataXMLElement *) [span objectAtIndex:0];
-
                     mainItem.typestr = firstName.stringValue;
                     
-                    //具体图片
                     NSArray *groups = [elements elementsForName:@"ul"];
-                    
                     for (GDataXMLElement * item in groups) {
-                        
                         NSArray *groups = [item elementsForName:@"li"];
-                        
                         for (GDataXMLElement * aItem in groups) {
-                            
                             DataItem * subItem = [DataItem new];
                             
                             NSArray *agroups = [aItem elementsForName:@"a"];
-                            
                             for (GDataXMLElement *element  in agroups) {
-                                
                                 if ([element attributeForName:@"title"]) {
                                     subItem.title = element.stringValue;
                                     subItem.author = [[element attributeForName:@"title"] stringValue];
@@ -181,15 +233,10 @@ static NSString * const kBaseURLString = @"http://shufa.m.supfree.net/";
                                 }else {
                                     subItem.imgurlstr = [[element attributeForName:@"href"] stringValue];
                                 }
-                                
                             }
-                            
                             [mainItem.subArray addObject:subItem];
-                            
                         }
-                        
                     }
-                    
                     [mainArray addObject:mainItem];
                 }
 
@@ -198,6 +245,23 @@ static NSString * const kBaseURLString = @"http://shufa.m.supfree.net/";
     }
 
     return mainArray;
+}
+
+#pragma mark - 根据书法家.搜索文字
++ (NSURLSessionDataTask *) SearchText:(NSString *)aText AccordAuthor:(NSString *)aAuthor
+                           parameters:(id)parameters
+                            withBlock:(void (^)(NSArray *posts, NSError *error))block {
+    
+#warning
+    return [[Service sharedClient] GET:aText
+                            parameters:parameters
+                               success:^(NSURLSessionDataTask *task, id responseObject) {
+                                   
+                                   block([self makeArrayFrom:responseObject], nil);
+                                   
+                               } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                   block(nil, error);
+                               }];
 }
 
 
