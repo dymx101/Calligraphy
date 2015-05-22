@@ -35,6 +35,20 @@ static NSString * const reuseIdentifier = @"GradientCell";
         [_dataArray addObjectsFromArray:array];
         
         [_mainCollection reloadData];
+        
+        [UIView animateWithDuration:3 animations:^{
+            
+            _mainSearchBar.alpha = 0;
+            
+        } completion:^(BOOL finished) {
+            if (finished) {
+                [_mainCollection scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]
+                                        atScrollPosition:UICollectionViewScrollPositionTop
+                                                animated:YES];
+//                [_mainCollection ]
+            }
+        }];
+        
     }];
 
 
