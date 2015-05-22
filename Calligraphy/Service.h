@@ -38,7 +38,7 @@
 /**
  *  获取page 文字
  */
-+ (NSURLSessionDataTask *) TextPage:(NSInteger)aPage
++ (NSURLSessionDataTask *) AllTextPage:(NSInteger)aPage
                              withBlock:(void (^)(NSArray *array, NSError *error))block;
 
 /**
@@ -57,9 +57,8 @@
 /**
  *  搜索书法家
  */
-+ (NSURLSessionDataTask *) SearchAuthor:(NSString *)aSearch
-                             parameters:(id)parameters
-                              withBlock:(void (^)(NSArray *posts, NSError *error))block;
++ (NSURLSessionDataTask *) CalligraphyFromAuthor:(NSString *)aSearch
+                                       withBlock:(void (^)(NSArray *posts, NSError *error))block;
 
 /**
  *  根据书法家.搜索文字

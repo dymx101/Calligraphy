@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class DataItem;
 @interface AuthorCollectionController : UICollectionViewController
+
+@property (nonatomic, strong) DataItem * selectItem;
+@property (nonatomic, copy) NSString * searchAuthor;
 
 @end

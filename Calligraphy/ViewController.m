@@ -9,7 +9,10 @@
 #import "ViewController.h"
 #import "Service.h"
 #import "TextCollectionController.h"
-@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+#import "AuthorCollectionController.h"
+@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate,UISearchBarDelegate>
+
+@property (weak, nonatomic) IBOutlet UISearchBar *mainSearchBar;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *mainCollection;
 
@@ -23,9 +26,6 @@ static NSString * const reuseIdentifier = @"GradientCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    
-//    [_mainCollection registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     _dataArray = [NSMutableArray array];
     
@@ -36,27 +36,46 @@ static NSString * const reuseIdentifier = @"GradientCell";
         
         [_mainCollection reloadData];
     }];
-    
-    
-    
-    [Service AllAuthor:^(NSDictionary *dic, NSError *error) {
-        
-        NSLog(@"%@",dic);
-        
-    }];
+
 
 }
-//定义展示的UICollectionViewCell的个数
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return ((NSArray *)_dataArray[section]).count;
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
+    [_mainSearchBar setShowsCancelButton:YES];
+    return YES;
 }
-//定义展示的Section的个数
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [_mainSearchBar setShowsCancelButton:NO];
+    [_mainSearchBar resignFirstResponder];
+}
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+
+    if (searchBar.text.length>1 || searchBar.text.length<1) {
+        [SVProgressHUD showErrorWithStatus:@"请输入一个汉字"];
+    }else {
+        
+        int a = [searchBar.text characterAtIndex:0];
+        if( a > 0x4e00 && a < 0x9fff){
+            [self performSegueWithIdentifier:@"TextCollectionController" sender:searchBar.text];
+            
+            [_mainSearchBar setShowsCancelButton:NO];
+            [_mainSearchBar resignFirstResponder];
+
+        }else {
+            [SVProgressHUD showErrorWithStatus:@"请输入中文"];
+        }
+    }
+}
+
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return _dataArray.count;
 }
-//每个UICollectionView展示的内容
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return ((NSArray *)_dataArray[section]).count;
+}
+
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
 
@@ -65,6 +84,12 @@ static NSString * const reuseIdentifier = @"GradientCell";
     UILabel * titleLabel = (UILabel *)[cell viewWithTag:100];
     
     DataItem * item = ((NSArray *)_dataArray[indexPath.section])[indexPath.row];
+
+    
+//    cell.backgroundColor = [UIColor colorWithRed:(1-(5 * indexPath.row) / 255.0) green:(1-(10 * indexPath.row)/255.0) blue:(1-(15 * indexPath.row)/255.0) alpha:1.0f];
+    
+    float colorRed = (float)indexPath.row/((NSArray *)_dataArray[indexPath.section]).count;
+    cell.backgroundColor = [UIColor colorWithRed:colorRed+0.0 green:colorRed+0.3 blue:colorRed+0.6 alpha:1.0f];
     
     if (item.author) {
         titleLabel.text = item.author;
@@ -74,11 +99,11 @@ static NSString * const reuseIdentifier = @"GradientCell";
         titleLabel.font = [UIFont systemFontOfSize:30];
     }
 
-    float colorRed = (float)indexPath.row/((NSArray *)_dataArray[indexPath.section]).count;
-    
+//    cell.backgroundColor = [UIColor colorWithRed:(1-(10 * indexPath.row) / 255.0) green:(1-(20 * indexPath.row)/255.0) blue:(1-(30 * indexPath.row)/255.0) alpha:1.0f];
+
 //    NSLog(@"%f",colorRed);
-    cell.backgroundColor = [UIColor colorWithRed:((10 * indexPath.row) / 255.0) green:((20 * indexPath.row)/255.0) blue:((30 * indexPath.row)/255.0) alpha:1.0f];
-//    cell.backgroundColor = [UIColor colorWithRed:colorRed green:colorRed blue:colorRed alpha:1.0f];
+//    cell.backgroundColor = [UIColor colorWithRed:((10 * indexPath.row) / 255.0) green:((20 * indexPath.row)/255.0) blue:((30 * indexPath.row)/255.0) alpha:1.0f];
+    
     return cell;
 }
 #pragma mark --UICollectionViewDelegateFlowLayout
@@ -153,17 +178,20 @@ static NSString * const reuseIdentifier = @"GradientCell";
         [self performSegueWithIdentifier:@"TextCollectionController" sender:item.title];
         
     }else {
-        
+        [self performSegueWithIdentifier:@"AuthorCollectionController" sender:item];
     }
     
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // segue.identifier：获取连线的ID
+
     if ([segue.identifier isEqualToString:@"TextCollectionController"]) {
-        // segue.destinationViewController：获取连线时所指的界面（VC）
         TextCollectionController *ctrl = segue.destinationViewController;
         ctrl.searchStr = sender;
+    }
+    if ([segue.identifier isEqualToString:@"AuthorCollectionController"]) {
+        AuthorCollectionController *ctrl = segue.destinationViewController;
+        ctrl.selectItem = sender;
     }
 }
 

@@ -18,7 +18,7 @@
         //        _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
         //申明返回的结果是json类型
         _sharedClient.responseSerializer = [AFHTTPResponseSerializer serializer];
-//        _sharedClient.requestSerializer=[AFHTTPRequestSerializer serializer];
+        //        _sharedClient.requestSerializer=[AFHTTPRequestSerializer serializer];
     });
     
     return _sharedClient;
@@ -47,17 +47,15 @@
                             parameters:nil
                                success:^(NSURLSessionDataTask *task, id responseObject) {
                                    
-                                   block([self defaultTextAuthorFrom:responseObject], nil);
+                                   block([self parseFromDefault:responseObject], nil);
                                    
                                } failure:^(NSURLSessionDataTask *task, NSError *error) {
                                    block(nil, error);
                                }];
-    
-    return nil;
 }
-+ (NSMutableArray *)defaultTextAuthorFrom:(id)aData {
++ (NSMutableArray *)parseFromDefault:(id)aData {
     
-//    NSLog(@"%@",[self encodingGBKFromData:aData]);
+    //    NSLog(@"%@",[self encodingGBKFromData:aData]);
     
     NSMutableArray * mainArray = [NSMutableArray arrayWithCapacity:2];
     
@@ -85,7 +83,7 @@
                         subItem.authorurl = [[element attributeForName:@"href"] stringValue];
                         
                     }
-
+                    
                 }
             }
             
@@ -114,7 +112,7 @@
                             }
                         }
                     }
-
+                    
                     
                 }
             }
@@ -125,19 +123,17 @@
 }
 
 
-
-
 /**
  *  获取page 文字 列表
  */
-+ (NSURLSessionDataTask *) TextPage:(NSInteger)aPage
++ (NSURLSessionDataTask *) AllTextPage:(NSInteger)aPage
                           withBlock:(void (^)(NSArray *array, NSError *error))block{
     
     return [[Service sharedClient] GET:[NSString stringWithFormat:@"dity.asp?page=%ld",(long)aPage]
                             parameters:nil
                                success:^(NSURLSessionDataTask *task, id responseObject) {
-                                   
-//                                   block([self makeDictionaryFrom:responseObject], nil);
+#warning 解析文本
+                                   //                                   block([self makeDictionaryFrom:responseObject], nil);
                                    
                                } failure:^(NSURLSessionDataTask *task, NSError *error) {
                                    block(nil, error);
@@ -151,17 +147,16 @@
                             parameters:nil
                                success:^(NSURLSessionDataTask *task, id responseObject) {
                                    
-                                   block([self makeAllAuthor:responseObject], nil);
+                                   block([self parseFromAllAuthor:responseObject], nil);
                                    
                                } failure:^(NSURLSessionDataTask *task, NSError *error) {
                                    block(nil, error);
                                }];
 }
 
-+ (NSDictionary *)makeAllAuthor:(id)aData {
++ (NSDictionary *)parseFromAllAuthor:(id)aData {
     
-    
-//    NSLog(@"%@",[self encodingGBKFromData:aData]);
+    //    NSLog(@"%@",[self encodingGBKFromData:aData]);
     
     NSMutableDictionary * mainDic = [NSMutableDictionary dictionary];
     
@@ -171,9 +166,6 @@
                                                                      error:NULL];
         if (doc) {
             
-            NSString * key = @"";
-            
-            
             NSArray *list = [doc nodesForXPath:@"//div[@class='cdiv']" error:NULL];
             
             for (GDataXMLElement * elements in list) {
@@ -182,7 +174,7 @@
                 if (p.count > 0) {
                     
                     for (GDataXMLElement * item in p) {
-                        key = @"";
+                        NSString * key = @"";
                         {
                             NSArray *span = [item elementsForName:@"span"];
                             if (span) {
@@ -213,42 +205,22 @@
     return mainDic;
 }
 
-#pragma mark - 搜索书法家
-+ (NSURLSessionDataTask *) SearchAuthor:(NSString *)aSearch
-                             parameters:(id)parameters
-                              withBlock:(void (^)(NSArray *posts, NSError *error))block{
+
+#pragma mark - 书法家的全部书法
++ (NSURLSessionDataTask *) CalligraphyFromAuthor:(NSString *)aSearch
+                                       withBlock:(void (^)(NSArray *posts, NSError *error))block{
+    
     return [[Service sharedClient] GET:aSearch
                             parameters:nil
                                success:^(NSURLSessionDataTask *task, id responseObject) {
-                                   
-                                   //                                   block([self makeDictionaryFrom:responseObject], nil);
-                                   
-                               } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                   block(nil, error);
-                               }];
-}
-
-#pragma mark - 搜索文字
-+ (NSURLSessionDataTask *) SearchText:(NSString *)aSearch
-                    parameters:(id)parameters
-                     withBlock:(void (^)(NSArray *posts, NSError *error))block {
-    
-    
-    
-    return [[Service sharedClient] GET:[Service encodingBKStr:[NSString stringWithFormat:@"raky.asp?zi=%@",aSearch]]
-                            parameters:parameters
-                               success:^(NSURLSessionDataTask *task, id responseObject) {
-                                   
-                                   block([self makeArrayFrom:responseObject], nil);
+#warning 解析文本
+                                   block([self parseFromAuthorData:responseObject], nil);
                                    
                                } failure:^(NSURLSessionDataTask *task, NSError *error) {
                                    block(nil, error);
                                }];
 }
-/**
- *  生成数据列表 @{ DataItem }
- */
-+ (NSArray *)makeArrayFrom:(id)aData {
++ (NSArray *)parseFromAuthorData:(id)aData {
     
     NSMutableArray * mainArray = [NSMutableArray array];
     
@@ -262,7 +234,75 @@
             NSArray *list = [doc nodesForXPath:@"//div[@class='cdiv']" error:NULL];
             
             for (GDataXMLElement * elements in list) {
+                
+                
+                NSArray *groups = [elements elementsForName:@"ul"];
+                for (GDataXMLElement * item in groups) {
+                    NSArray *groups = [item elementsForName:@"li"];
+                    for (GDataXMLElement * aItem in groups) {
+                        DataItem * subItem = [DataItem new];
+                        
+                        NSArray *agroups = [aItem elementsForName:@"a"];
+                        for (GDataXMLElement *element  in agroups) {
+                            if ([element attributeForName:@"title"]) {
+                                subItem.title = element.stringValue;
+                                subItem.author = [[element attributeForName:@"title"] stringValue];
+                                subItem.authorurl = [[element attributeForName:@"href"] stringValue];
+                            }else {
+                                subItem.imgurlstr = [[element attributeForName:@"href"] stringValue];
+                            }
+                        }
+                        [mainArray addObject:subItem];
+                    }
+                }
+                //                    [mainArray addObject:mainItem];
+            }
+            
+        }
+    }
+    
+    return mainArray;
+}
 
+
+
+
+
+#pragma mark - 搜索文字
++ (NSURLSessionDataTask *) SearchText:(NSString *)aSearch
+                           parameters:(id)parameters
+                            withBlock:(void (^)(NSArray *posts, NSError *error))block {
+    
+    
+    
+    return [[Service sharedClient] GET:[Service encodingBKStr:[NSString stringWithFormat:@"raky.asp?zi=%@",aSearch]]
+                            parameters:parameters
+                               success:^(NSURLSessionDataTask *task, id responseObject) {
+                                   
+                                   block([self parseFromTextData:responseObject], nil);
+                                   
+                               } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                   block(nil, error);
+                               }];
+}
+/**
+ *  解析数据列表 @{ DataItem }
+ */
++ (NSArray *)parseFromTextData:(id)aData {
+    
+    NSMutableArray * mainArray = [NSMutableArray array];
+    
+    @autoreleasepool {
+        
+        GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithHTMLData:aData
+                                                                  encoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)
+                                                                     error:NULL];
+        if (doc) {
+            
+            NSArray *list = [doc nodesForXPath:@"//div[@class='cdiv']" error:NULL];
+            
+            for (GDataXMLElement * elements in list) {
+                
                 NSArray *span = [elements elementsForName:@"span"];
                 if (span.count > 0) {
                     
@@ -291,11 +331,11 @@
                     }
                     [mainArray addObject:mainItem];
                 }
-
+                
             }
         }
     }
-
+    
     return mainArray;
 }
 
@@ -309,7 +349,7 @@
                             parameters:parameters
                                success:^(NSURLSessionDataTask *task, id responseObject) {
                                    
-                                   block([self makeArrayFrom:responseObject], nil);
+//                                   block([self parseFromTextData:responseObject], nil);
                                    
                                } failure:^(NSURLSessionDataTask *task, NSError *error) {
                                    block(nil, error);

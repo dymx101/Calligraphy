@@ -26,14 +26,15 @@ static NSString * const reuseIdentifier = @"Cell";
 //    self.clearsSelectionOnViewWillAppear = NO;
     
     self.title = _searchStr;
-    // Register cell classes
-//    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    
-    // Do any additional setup after loading the view.
+
     _dataArray = [NSMutableArray array];
+    
+
+    
     [Service SearchText:_searchStr parameters:nil withBlock:^(NSArray *posts, NSError *error) {
         _dataArray = [NSMutableArray arrayWithArray:posts];
         [self.collectionView reloadData];
+
     }];
     
 }
@@ -70,8 +71,7 @@ static NSString * const reuseIdentifier = @"Cell";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     // Configure the cell
-   
-    
+
     DataItem * item = _dataArray[indexPath.section];
     
     DataItem * sutItem = item.subArray[indexPath.row];
@@ -92,6 +92,11 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 #pragma mark <UICollectionViewDelegate>
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(80, 80);
+}
+
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionReusableView *reusableview = nil;
@@ -105,9 +110,12 @@ static NSString * const reuseIdentifier = @"Cell";
         if (!titleLable) {
             titleLable = [[UILabel alloc]initWithFrame:headerView.bounds];
             [headerView addSubview:titleLable];
+            titleLable.numberOfLines = 1;
         }
         
         DataItem * item = _dataArray[indexPath.section];
+        
+        
         
         titleLable.text = item.typestr;
         

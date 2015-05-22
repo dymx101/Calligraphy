@@ -24,6 +24,10 @@
     _imgurlstr = [NSString stringWithFormat:@"%@%@",kBaseURLString,imgurlstr];
     
 }
+- (void)setTypestr:(NSString *)typestr {
+    _typestr = [typestr stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    _typestr = [_typestr stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+}
 
 + (id)itemFromData:(id)aData {
     

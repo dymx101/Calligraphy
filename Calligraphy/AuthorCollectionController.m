@@ -7,9 +7,11 @@
 //
 
 #import "AuthorCollectionController.h"
-
+#import "Service.h"
+#import <UIImageView+WebCache.h>
 @interface AuthorCollectionController ()
 
+@property (nonatomic, strong) NSMutableArray * dataArray;
 @end
 
 @implementation AuthorCollectionController
@@ -18,14 +20,19 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.title = _selectItem.author;
+    _dataArray = [NSMutableArray array];
     
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [Service CalligraphyFromAuthor:_selectItem.authorurl
+                         withBlock:^(NSArray *posts, NSError *error) {
+                             
+                             _dataArray = [NSMutableArray arrayWithArray:posts];
+                             [self.collectionView reloadData];
+
+                         }];
     
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,14 +53,12 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete method implementation -- Return the number of sections
-    return 0;
+    return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete method implementation -- Return the number of items in the section
-    return 0;
+    return _dataArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -61,38 +66,29 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Configure the cell
     
+    DataItem * item = _dataArray[indexPath.row];
+    
+    UIImageView * imageView = (UIImageView *)[cell viewWithTag:111];
+    
+    @autoreleasepool {
+        [imageView sd_setImageWithURL:[NSURL URLWithString:item.imgurlstr] placeholderImage:nil];
+    }
+    
+//    cell.backgroundColor = [UIColor colorWithRed:(1-(10 * indexPath.row) / 255.0) green:(1-(20 * indexPath.row)/255.0) blue:(1-(30 * indexPath.row)/255.0) alpha:1.0f];
+    cell.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1.0f];
+    
     return cell;
 }
 
 #pragma mark <UICollectionViewDelegate>
-
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(80, 80);
 }
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(10,10, 10, 10);
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 @end
