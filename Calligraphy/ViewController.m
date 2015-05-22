@@ -39,7 +39,9 @@ static NSString * const reuseIdentifier = @"GradientCell";
     
     
     
-    [Service AllAuthor:^(NSArray *array, NSError *error) {
+    [Service AllAuthor:^(NSDictionary *dic, NSError *error) {
+        
+        NSLog(@"%@",dic);
         
     }];
 
@@ -75,8 +77,8 @@ static NSString * const reuseIdentifier = @"GradientCell";
     float colorRed = (float)indexPath.row/((NSArray *)_dataArray[indexPath.section]).count;
     
 //    NSLog(@"%f",colorRed);
-//    cell.backgroundColor = [UIColor colorWithRed:1.0 green:10*indexPath.row/255.0 blue:10*indexPath.row/255.0 alpha:1];
-    cell.backgroundColor = [UIColor colorWithRed:colorRed green:colorRed blue:colorRed alpha:1.0f];
+    cell.backgroundColor = [UIColor colorWithRed:((10 * indexPath.row) / 255.0) green:((20 * indexPath.row)/255.0) blue:((30 * indexPath.row)/255.0) alpha:1.0f];
+//    cell.backgroundColor = [UIColor colorWithRed:colorRed green:colorRed blue:colorRed alpha:1.0f];
     return cell;
 }
 #pragma mark --UICollectionViewDelegateFlowLayout

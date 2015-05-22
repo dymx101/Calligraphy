@@ -146,7 +146,7 @@
 }
 
 #pragma mark - 获取书法家列表
-+ (NSURLSessionDataTask *) AllAuthor:(void (^)(NSArray *array, NSError *error))block{
++ (NSURLSessionDataTask *) AllAuthor:(void (^)(NSDictionary *dic, NSError *error))block{
     return [[Service sharedClient] GET:@"widy.asp"
                             parameters:nil
                                success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -158,47 +158,59 @@
                                }];
 }
 
-+ (NSArray *)makeAllAuthor:(id)aData {
++ (NSDictionary *)makeAllAuthor:(id)aData {
     
     
 //    NSLog(@"%@",[self encodingGBKFromData:aData]);
     
     NSMutableDictionary * mainDic = [NSMutableDictionary dictionary];
     
-    GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithHTMLData:aData
-                                                              encoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)
-                                                                 error:NULL];
-    if (doc) {
-        
-         NSArray *list = [doc nodesForXPath:@"//div[@class='cdiv']" error:NULL];
-        for (GDataXMLElement * elements in list) {
+    @autoreleasepool {
+        GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithHTMLData:aData
+                                                                  encoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)
+                                                                     error:NULL];
+        if (doc) {
             
-            NSArray *span = [elements elementsForName:@"p"];
-            if (span.count > 0) {
+            NSString * key = @"";
+            
+            
+            NSArray *list = [doc nodesForXPath:@"//div[@class='cdiv']" error:NULL];
+            
+            for (GDataXMLElement * elements in list) {
                 
-//                NSLog(@"%@",span);
-                
-                
-                for (GDataXMLElement * item in span) {
-                    DDLogWarn(item.stringValue);
+                NSArray *p = [elements elementsForName:@"p"];
+                if (p.count > 0) {
+                    
+                    for (GDataXMLElement * item in p) {
+                        key = @"";
+                        {
+                            NSArray *span = [item elementsForName:@"span"];
+                            if (span) {
+                                GDataXMLElement *firstName = (GDataXMLElement *) [span objectAtIndex:0];
+                                key = firstName.stringValue;
+                            }else {
+                                continue;
+                            }
+                        }
+                        NSMutableArray * objectArray = [NSMutableArray array];
+                        NSArray *arrays = [item elementsForName:@"a"];
+                        for (GDataXMLElement * e in arrays) {
+                            DataItem * item = [DataItem new];
+                            [objectArray addObject:item];
+                            
+                            item.author = e.stringValue;
+                            item.authorurl = [[e attributeForName:@"href"] stringValue];
+                        }
+                        
+                        [mainDic setObject:objectArray forKey:key];
+                        
+                    }
                 }
-                
-//                GDataXMLElement *firstName = (GDataXMLElement *) [span objectAtIndex:0];
-//                DDLogWarn(firstName.stringValue);
-                
-//                 NSArray *groups = [elements elementsForName:@"a"];
-//                for (GDataXMLElement * item in groups) {
-////                    NSLog(@"%@",item.stringValue);
-////                    DDLogError([[item attributeForName:@"title"] stringValue]);
-//                }
-                
             }
         }
     }
     
-    
-    
-    return nil;
+    return mainDic;
 }
 
 #pragma mark - 搜索书法家

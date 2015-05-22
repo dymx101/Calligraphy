@@ -44,7 +44,7 @@
 /**
  *  获取书法家列表
  */
-+ (NSURLSessionDataTask *) AllAuthor:(void (^)(NSArray *array, NSError *error))block;
++ (NSURLSessionDataTask *) AllAuthor:(void (^)(NSDictionary *dic, NSError *error))block;
 
 
 /**
