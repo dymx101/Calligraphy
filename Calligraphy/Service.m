@@ -19,6 +19,33 @@
         //申明返回的结果是json类型
         _sharedClient.responseSerializer = [AFHTTPResponseSerializer serializer];
         //        _sharedClient.requestSerializer=[AFHTTPRequestSerializer serializer];
+        
+        [_sharedClient.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+            switch (status) {
+                case AFNetworkReachabilityStatusReachableViaWWAN:
+                
+                    break;
+                    
+                case AFNetworkReachabilityStatusReachableViaWiFi:
+                {
+                    [SVProgressHUD showErrorWithStatus:@"已链接wifi"];
+                    
+                    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"已链接wifi" message:nil delegate:nil
+                                                          cancelButtonTitle:@"确定"
+                                                          otherButtonTitles:nil, nil];
+                    [alert show];
+                }
+                    break;
+                case AFNetworkReachabilityStatusNotReachable:
+                {
+                    [SVProgressHUD showErrorWithStatus:@"网络中断.请检查网络设置."];
+                }
+                    break;
+                default:
+                    break;
+            }
+        }];
+        
     });
     
     return _sharedClient;
@@ -50,7 +77,8 @@
                                    block([self parseFromDefault:responseObject], nil);
                                    
                                } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                   block(nil, error);
+//                                   block(nil, error);
+                                   [SVProgressHUD showErrorWithStatus:@"数据错误,请稍后再试"];
                                }];
 }
 + (NSMutableArray *)parseFromDefault:(id)aData {
@@ -129,16 +157,53 @@
 + (NSURLSessionDataTask *) AllTextPage:(NSInteger)aPage
                           withBlock:(void (^)(NSArray *array, NSError *error))block{
     
+    NSLog(@"%@",[NSString stringWithFormat:@"dity.asp?page=%ld",(long)aPage]);
+    
     return [[Service sharedClient] GET:[NSString stringWithFormat:@"dity.asp?page=%ld",(long)aPage]
                             parameters:nil
                                success:^(NSURLSessionDataTask *task, id responseObject) {
-#warning 解析文本
-                                   //                                   block([self makeDictionaryFrom:responseObject], nil);
+                                   
+                                   block([self parseFromText:responseObject], nil);
                                    
                                } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                   block(nil, error);
+//                                   block(nil, error);
+                                   [SVProgressHUD showErrorWithStatus:@"数据错误,请稍后再试"];
                                }];
     return nil;
+}
++ (NSArray *)parseFromText:(id)aData {
+    
+    NSMutableArray * mainArray = [NSMutableArray array];
+    
+    @autoreleasepool {
+        
+        GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithHTMLData:aData
+                                                                  encoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)
+                                                                     error:NULL];
+        if (doc) {
+            
+            {   //默认的文字
+                NSArray *textList = [doc nodesForXPath:@"//div[@class='cdiv wenk']" error:NULL];
+                
+                for (GDataXMLElement * elements in textList) {
+                    
+                    NSArray *agroups = [elements elementsForName:@"a"];
+                    for (GDataXMLElement *element  in agroups) {
+                        
+                        DataItem * subItem = [DataItem new];
+                        [mainArray addObject:subItem];
+                        
+                        subItem.title = element.stringValue;
+                        subItem.authorurl = [[element attributeForName:@"href"] stringValue];
+                        
+                    }
+                    
+                }
+            }
+        }
+    }
+    
+    return mainArray;
 }
 
 #pragma mark - 获取书法家列表
@@ -150,7 +215,8 @@
                                    block([self parseFromAllAuthor:responseObject], nil);
                                    
                                } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                   block(nil, error);
+//                                   block(nil, error);
+                                   [SVProgressHUD showErrorWithStatus:@"数据错误,请稍后再试"];
                                }];
 }
 
@@ -208,16 +274,18 @@
 
 #pragma mark - 书法家的全部书法
 + (NSURLSessionDataTask *) CalligraphyFromAuthor:(NSString *)aSearch
+                                            page:(NSInteger)aPage
                                        withBlock:(void (^)(NSArray *posts, NSError *error))block{
     
-    return [[Service sharedClient] GET:aSearch
+    return [[Service sharedClient] GET:[NSString stringWithFormat:@"%@&page=%ld",aSearch,(long)aPage]
                             parameters:nil
                                success:^(NSURLSessionDataTask *task, id responseObject) {
-#warning 解析文本
+                                   
                                    block([self parseFromAuthorData:responseObject], nil);
                                    
                                } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                   block(nil, error);
+//                                   block(nil, error);
+                                   [SVProgressHUD showErrorWithStatus:@"数据错误,请稍后再试"];
                                }];
 }
 + (NSArray *)parseFromAuthorData:(id)aData {
@@ -282,7 +350,8 @@
                                    block([self parseFromTextData:responseObject], nil);
                                    
                                } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                   block(nil, error);
+//                                   block(nil, error);
+                                   [SVProgressHUD showErrorWithStatus:@"数据错误,请稍后再试"];
                                }];
 }
 /**
@@ -352,7 +421,8 @@
 //                                   block([self parseFromTextData:responseObject], nil);
                                    
                                } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                   block(nil, error);
+//                                   block(nil, error);
+                                   [SVProgressHUD showErrorWithStatus:@"数据错误,请稍后再试"];
                                }];
 }
 

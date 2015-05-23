@@ -10,7 +10,8 @@
 #import "Service.h"
 #import "TextCollectionController.h"
 #import "AuthorCollectionController.h"
-@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate,UISearchBarDelegate>
+#import "DefaultReusableView.h"
+@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate,UISearchBarDelegate,DefaultReusableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *mainSearchBar;
 
@@ -35,19 +36,6 @@ static NSString * const reuseIdentifier = @"GradientCell";
         [_dataArray addObjectsFromArray:array];
         
         [_mainCollection reloadData];
-        
-        [UIView animateWithDuration:3 animations:^{
-            
-            _mainSearchBar.alpha = 0;
-            
-        } completion:^(BOOL finished) {
-            if (finished) {
-                [_mainCollection scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]
-                                        atScrollPosition:UICollectionViewScrollPositionTop
-                                                animated:YES];
-//                [_mainCollection ]
-            }
-        }];
         
     }];
 
@@ -102,17 +90,20 @@ static NSString * const reuseIdentifier = @"GradientCell";
     
 //    cell.backgroundColor = [UIColor colorWithRed:(1-(5 * indexPath.row) / 255.0) green:(1-(10 * indexPath.row)/255.0) blue:(1-(15 * indexPath.row)/255.0) alpha:1.0f];
     
-    float colorRed = (float)indexPath.row/((NSArray *)_dataArray[indexPath.section]).count;
-    cell.backgroundColor = [UIColor colorWithRed:colorRed+0.0 green:colorRed+0.3 blue:colorRed+0.6 alpha:1.0f];
+//    float colorRed = (float)indexPath.row/((NSArray *)_dataArray[indexPath.section]).count;
+//    cell.backgroundColor = [UIColor colorWithRed:colorRed+0.0 green:colorRed+0.3 blue:colorRed+0.6 alpha:1.0f];
     
     if (item.author) {
         titleLabel.text = item.author;
-        titleLabel.font = [UIFont systemFontOfSize:16];
+        titleLabel.font = [UIFont systemFontOfSize:18];
     }else {
         titleLabel.text = item.title;
         titleLabel.font = [UIFont systemFontOfSize:30];
     }
-
+    
+    cell.layer.borderColor = [UIColor blackColor].CGColor ;
+    cell.layer.borderWidth = 1;
+    cell.layer.masksToBounds = YES;
 //    cell.backgroundColor = [UIColor colorWithRed:(1-(10 * indexPath.row) / 255.0) green:(1-(20 * indexPath.row)/255.0) blue:(1-(30 * indexPath.row)/255.0) alpha:1.0f];
 
 //    NSLog(@"%f",colorRed);
@@ -127,7 +118,7 @@ static NSString * const reuseIdentifier = @"GradientCell";
     DataItem * item = ((NSArray *)_dataArray[indexPath.section])[indexPath.row];
     
     if (item.author) {
-        NSDictionary *attribute = @{NSFontAttributeName: [UIFont systemFontOfSize:16]};
+        NSDictionary *attribute = @{NSFontAttributeName: [UIFont systemFontOfSize:18]};
         CGSize textSize = [item.author boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
                                                     options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
                                                  attributes:attribute
@@ -156,21 +147,22 @@ static NSString * const reuseIdentifier = @"GradientCell";
     
     if (kind == UICollectionElementKindSectionHeader){
         
-        UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
-
+        DefaultReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"DefaultReusableView" forIndexPath:indexPath];
+        headerView.deletage = self;
+        headerView.indexPath = indexPath;
         UILabel * titleLable = (UILabel *)[headerView viewWithTag:100];
-        
-        if (!titleLable) {
-            titleLable = [[UILabel alloc]initWithFrame:headerView.bounds];
-            [headerView addSubview:titleLable];
-        }
+
         
         switch (indexPath.section) {
             case 0:
-                titleLable.text  = @"文字列表";
+            {
+                titleLable.text  = @"汉字列表";
+            }
                 break;
             default:
+            {
                 titleLable.text  = @"书法家列表";
+            }
                 break;
         }
         
@@ -180,6 +172,25 @@ static NSString * const reuseIdentifier = @"GradientCell";
     return reusableview;
     
 }
+- (void)didReusableViewIndexPath:(NSIndexPath *)aIndexPath {
+    
+    switch (aIndexPath.section) {
+        case 0:
+        {
+            [self performSegueWithIdentifier:@"AllTextController" sender:self];
+        }
+            break;
+        default:
+        {
+            [self performSegueWithIdentifier:@"AllAuthorController" sender:self];
+        }
+            break;
+    }
+    
+}
+
+
+
 
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath

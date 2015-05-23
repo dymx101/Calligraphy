@@ -9,7 +9,9 @@
 #import "AuthorCollectionController.h"
 #import "Service.h"
 #import <UIImageView+WebCache.h>
-@interface AuthorCollectionController ()
+@interface AuthorCollectionController () {
+    NSInteger pageInt;
+}
 
 @property (nonatomic, strong) NSMutableArray * dataArray;
 @end
@@ -23,13 +25,14 @@ static NSString * const reuseIdentifier = @"Cell";
 
     self.title = _selectItem.author;
     _dataArray = [NSMutableArray array];
-    
-    
+    pageInt = 1;
     [Service CalligraphyFromAuthor:_selectItem.authorurl
+                              page:pageInt
                          withBlock:^(NSArray *posts, NSError *error) {
                              
                              _dataArray = [NSMutableArray arrayWithArray:posts];
                              [self.collectionView reloadData];
+                             
 
                          }];
     
@@ -75,7 +78,12 @@ static NSString * const reuseIdentifier = @"Cell";
     }
     
 //    cell.backgroundColor = [UIColor colorWithRed:(1-(10 * indexPath.row) / 255.0) green:(1-(20 * indexPath.row)/255.0) blue:(1-(30 * indexPath.row)/255.0) alpha:1.0f];
-    cell.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1.0f];
+//    cell.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1.0f];
+    
+    cell.layer.masksToBounds = YES;
+    cell.layer.borderColor = [UIColor blackColor].CGColor ;
+    cell.layer.borderWidth = 1;
+    
     
     return cell;
 }
@@ -90,5 +98,42 @@ static NSString * const reuseIdentifier = @"Cell";
     return UIEdgeInsetsMake(10,10, 10, 10);
 }
 
+- (IBAction)touchMore:(UIButton *)sender {
+    
+    sender.enabled = NO;
+    [Service CalligraphyFromAuthor:_selectItem.authorurl
+                              page:++pageInt
+                         withBlock:^(NSArray *posts, NSError *error) {
+                             
+                             
+                             if (_dataArray.count < 50-1) {
+                                 return;
+                             }
+                             
+                             [_dataArray addObjectsFromArray:posts];
+                             [self.collectionView reloadData];
+                             
+                             if (posts.count ==50) {
+                                 sender.enabled = YES;
+                             }
+                             
+                         }];
+}
+
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionReusableView *reusableview = nil;
+    
+    if (kind == UICollectionElementKindSectionFooter){
+        
+        UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterView" forIndexPath:indexPath];
+        
+        reusableview = headerView;
+        
+    }
+    return reusableview;
+    
+}
 
 @end

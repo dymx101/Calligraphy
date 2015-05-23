@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		26BB455BE12FB100E0C84D4D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20322D1FD533D47BE6336E97 /* libPods.a */; };
+		6C59FD891B10B5F40067E83A /* AllAuthorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C59FD881B10B5F40067E83A /* AllAuthorController.m */; };
+		6C59FD8C1B10B61D0067E83A /* AllTextController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C59FD8B1B10B61D0067E83A /* AllTextController.m */; };
+		6C59FD8F1B10B9500067E83A /* DefaultReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C59FD8E1B10B9500067E83A /* DefaultReusableView.m */; };
 		FF01936A1B0DCBDB00375ED0 /* AuthorCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0193691B0DCBDB00375ED0 /* AuthorCollectionController.m */; };
 		FF1471C61B0DA906008E39C9 /* TextCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1471C51B0DA906008E39C9 /* TextCollectionController.m */; };
 		FF27EB451B0AC6C100343E72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27EB441B0AC6C100343E72 /* main.m */; };
@@ -34,6 +37,12 @@
 /* Begin PBXFileReference section */
 		20322D1FD533D47BE6336E97 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		620D5961B838800D2FC67CCF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6C59FD871B10B5F40067E83A /* AllAuthorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllAuthorController.h; sourceTree = "<group>"; };
+		6C59FD881B10B5F40067E83A /* AllAuthorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllAuthorController.m; sourceTree = "<group>"; };
+		6C59FD8A1B10B61D0067E83A /* AllTextController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllTextController.h; sourceTree = "<group>"; };
+		6C59FD8B1B10B61D0067E83A /* AllTextController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllTextController.m; sourceTree = "<group>"; };
+		6C59FD8D1B10B9500067E83A /* DefaultReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultReusableView.h; sourceTree = "<group>"; };
+		6C59FD8E1B10B9500067E83A /* DefaultReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultReusableView.m; sourceTree = "<group>"; };
 		E961CE87BF9B9508FD214E88 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FF0193681B0DCBDB00375ED0 /* AuthorCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorCollectionController.h; sourceTree = "<group>"; };
 		FF0193691B0DCBDB00375ED0 /* AuthorCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorCollectionController.m; sourceTree = "<group>"; };
@@ -98,6 +107,8 @@
 		FF1471C21B0D99C7008E39C9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6C59FD8D1B10B9500067E83A /* DefaultReusableView.h */,
+				6C59FD8E1B10B9500067E83A /* DefaultReusableView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -111,6 +122,10 @@
 				FF1471C51B0DA906008E39C9 /* TextCollectionController.m */,
 				FF0193681B0DCBDB00375ED0 /* AuthorCollectionController.h */,
 				FF0193691B0DCBDB00375ED0 /* AuthorCollectionController.m */,
+				6C59FD8A1B10B61D0067E83A /* AllTextController.h */,
+				6C59FD8B1B10B61D0067E83A /* AllTextController.m */,
+				6C59FD871B10B5F40067E83A /* AllAuthorController.h */,
+				6C59FD881B10B5F40067E83A /* AllAuthorController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -325,12 +340,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF27EB4B1B0AC6C100343E72 /* ViewController.m in Sources */,
+				6C59FD8F1B10B9500067E83A /* DefaultReusableView.m in Sources */,
+				6C59FD8C1B10B61D0067E83A /* AllTextController.m in Sources */,
 				FF68ACBB1B0C3AB800BAB3E7 /* DataItem.m in Sources */,
 				FF27EB6B1B0AC91E00343E72 /* Service.m in Sources */,
 				FF01936A1B0DCBDB00375ED0 /* AuthorCollectionController.m in Sources */,
 				FF27EB481B0AC6C100343E72 /* AppDelegate.m in Sources */,
 				FF1471C61B0DA906008E39C9 /* TextCollectionController.m in Sources */,
 				FF27EB451B0AC6C100343E72 /* main.m in Sources */,
+				6C59FD891B10B5F40067E83A /* AllAuthorController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,7 +407,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yongsheng liu (24D459F86D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yongsheng liu (24D459F86D)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -411,6 +430,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "c804dc9c-5aff-4f49-9524-051528990435";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -432,7 +452,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yongsheng liu (24D459F86D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yongsheng liu (24D459F86D)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -447,6 +468,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "c804dc9c-5aff-4f49-9524-051528990435";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

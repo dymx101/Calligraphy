@@ -55,9 +55,10 @@
                               withBlock:(void (^)(NSArray *posts, NSError *error))block;
 
 /**
- *  搜索书法家
+ *  搜索书法家的书法列表
  */
 + (NSURLSessionDataTask *) CalligraphyFromAuthor:(NSString *)aSearch
+                                            page:(NSInteger)aPage
                                        withBlock:(void (^)(NSArray *posts, NSError *error))block;
 
 /**

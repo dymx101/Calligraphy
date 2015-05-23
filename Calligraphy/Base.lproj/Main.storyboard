@@ -27,6 +27,7 @@
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bP1-mm-7hi">
                                 <rect key="frame" x="0.0" y="44" width="600" height="492"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="l2q-8O-PSa">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="50" height="35"/>
@@ -44,6 +45,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2a1-aP-zzt">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -61,23 +63,32 @@
                                         </constraints>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderView" id="oAM-WP-qmE">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DefaultReusableView" id="oAM-WP-qmE" customClass="DefaultReusableView">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="35"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6A-WN-klQ">
-                                            <rect key="frame" x="14" y="0.0" width="572" height="35"/>
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="全部" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6A-WN-klQ">
+                                            <rect key="frame" x="309" y="0.0" width="283" height="35"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="文字列表" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ns-aC-ozC">
+                                            <rect key="frame" x="8" y="0.0" width="283" height="35"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                                    <gestureRecognizers/>
                                     <constraints>
-                                        <constraint firstItem="e6A-WN-klQ" firstAttribute="top" secondItem="oAM-WP-qmE" secondAttribute="top" id="Kjv-Yf-Pf2"/>
-                                        <constraint firstItem="e6A-WN-klQ" firstAttribute="centerX" secondItem="oAM-WP-qmE" secondAttribute="centerX" id="TPb-3J-CfM"/>
-                                        <constraint firstAttribute="bottom" secondItem="e6A-WN-klQ" secondAttribute="bottom" id="Yaz-Y9-1sS"/>
-                                        <constraint firstItem="e6A-WN-klQ" firstAttribute="leading" secondItem="oAM-WP-qmE" secondAttribute="leadingMargin" constant="6" id="eka-OU-KJc"/>
+                                        <constraint firstItem="6Ns-aC-ozC" firstAttribute="leading" secondItem="oAM-WP-qmE" secondAttribute="leading" constant="10" id="1YY-wx-cMX"/>
+                                        <constraint firstAttribute="bottom" secondItem="e6A-WN-klQ" secondAttribute="bottom" id="31e-EN-VIy"/>
+                                        <constraint firstItem="6Ns-aC-ozC" firstAttribute="top" secondItem="oAM-WP-qmE" secondAttribute="top" id="Ccz-Hx-p4E"/>
+                                        <constraint firstAttribute="bottom" secondItem="6Ns-aC-ozC" secondAttribute="bottom" id="L65-gm-ddb"/>
+                                        <constraint firstItem="e6A-WN-klQ" firstAttribute="top" secondItem="oAM-WP-qmE" secondAttribute="top" id="vLq-Ov-Tsk"/>
+                                        <constraint firstAttribute="trailing" secondItem="e6A-WN-klQ" secondAttribute="trailing" constant="10" id="y5H-7r-Fva"/>
                                     </constraints>
                                 </collectionReusableView>
                                 <connections>
@@ -104,11 +115,89 @@
                         <outlet property="mainSearchBar" destination="7v1-j1-GN8" id="087-Ix-bGA"/>
                         <segue destination="Nvg-Df-4lb" kind="push" identifier="TextCollectionController" id="UaO-G8-2Ez"/>
                         <segue destination="EjO-dy-vMa" kind="push" identifier="AuthorCollectionController" id="a3j-sm-y8i"/>
+                        <segue destination="H1f-op-mqh" kind="push" identifier="AllTextController" id="ckm-Rz-vHM"/>
+                        <segue destination="afg-Ti-GIj" kind="push" identifier="AllAuthorController" id="8dK-2r-ld1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1274" y="427"/>
+            <point key="canvasLocation" x="608" y="41"/>
+        </scene>
+        <!--汉子列表-->
+        <scene sceneID="Wyf-KR-GIn">
+            <objects>
+                <collectionViewController id="H1f-op-mqh" customClass="AllTextController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="m9K-LQ-j1w">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="13e-5L-a43">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="50" height="38"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="OE9-9g-wnr">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79U-sQ-Vg7">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="79U-sQ-Vg7" secondAttribute="trailing" id="L8b-aD-5QS"/>
+                                    <constraint firstAttribute="bottom" secondItem="79U-sQ-Vg7" secondAttribute="bottom" id="Nwk-sV-R4f"/>
+                                    <constraint firstItem="79U-sQ-Vg7" firstAttribute="top" secondItem="OE9-9g-wnr" secondAttribute="top" id="jBI-lT-Tpq"/>
+                                    <constraint firstItem="79U-sQ-Vg7" firstAttribute="leading" secondItem="OE9-9g-wnr" secondAttribute="leading" id="q6M-Sz-mS9"/>
+                                </constraints>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FooterView" id="gwK-vd-lFb">
+                            <rect key="frame" x="0.0" y="50" width="600" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PeF-XQ-cdO">
+                                    <rect key="frame" x="8" y="2" width="584" height="34"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                    <state key="normal" title="点击获取更多">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="touchMore:" destination="H1f-op-mqh" eventType="touchUpInside" id="iGG-j7-oNY"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="PeF-XQ-cdO" firstAttribute="top" secondItem="gwK-vd-lFb" secondAttribute="topMargin" constant="-6" id="Wwc-Sf-jUF"/>
+                                <constraint firstItem="PeF-XQ-cdO" firstAttribute="centerY" secondItem="gwK-vd-lFb" secondAttribute="centerY" id="dLm-Cq-cbF"/>
+                                <constraint firstItem="PeF-XQ-cdO" firstAttribute="trailing" secondItem="gwK-vd-lFb" secondAttribute="trailingMargin" id="fNq-3P-80l"/>
+                                <constraint firstItem="PeF-XQ-cdO" firstAttribute="leading" secondItem="gwK-vd-lFb" secondAttribute="leadingMargin" id="fp7-ur-09X"/>
+                            </constraints>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="H1f-op-mqh" id="UIM-w0-SO4"/>
+                            <outlet property="delegate" destination="H1f-op-mqh" id="Gx4-HS-lqy"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="汉子列表" id="HjL-Jy-V0q"/>
+                    <connections>
+                        <segue destination="Nvg-Df-4lb" kind="push" identifier="TextCollectionController" id="xLF-Hk-4u9"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WaQ-0A-cSM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1350" y="-753"/>
         </scene>
         <!--Text Collection Controller-->
         <scene sceneID="Wcr-1m-T1I">
@@ -147,7 +236,7 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderView" id="0hX-sE-6TZ">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="24"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="INh-jN-aHr">
@@ -157,7 +246,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="INh-jN-aHr" firstAttribute="top" secondItem="0hX-sE-6TZ" secondAttribute="top" id="DeB-zh-vdz"/>
                                 <constraint firstAttribute="bottom" secondItem="INh-jN-aHr" secondAttribute="bottom" id="EJk-1v-eQK"/>
@@ -174,7 +263,80 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M6x-gP-paX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2097" y="169"/>
+            <point key="canvasLocation" x="1913" y="41"/>
+        </scene>
+        <!--书法家列表-->
+        <scene sceneID="30j-BE-ruH">
+            <objects>
+                <collectionViewController id="afg-Ti-GIj" customClass="AllAuthorController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="OQu-7s-RMU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ygy-gS-C60">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="50" height="24"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="74Z-PN-Fq8">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAb-Rl-zTu">
+                                            <rect key="frame" x="4" y="14" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="EAb-Rl-zTu" secondAttribute="bottom" id="QId-2Z-YF4"/>
+                                    <constraint firstItem="EAb-Rl-zTu" firstAttribute="leading" secondItem="74Z-PN-Fq8" secondAttribute="leading" id="kqI-ZA-nFz"/>
+                                    <constraint firstItem="EAb-Rl-zTu" firstAttribute="top" secondItem="74Z-PN-Fq8" secondAttribute="top" id="pt6-93-oDz"/>
+                                    <constraint firstAttribute="trailing" secondItem="EAb-Rl-zTu" secondAttribute="trailing" id="xjg-ev-iCx"/>
+                                </constraints>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderView" id="dho-2u-oTq">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfB-Nr-TOe">
+                                    <rect key="frame" x="279" y="0.0" width="42" height="21"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="pfB-Nr-TOe" secondAttribute="trailing" constant="10" id="KgH-Ad-rDE"/>
+                                <constraint firstAttribute="bottom" secondItem="pfB-Nr-TOe" secondAttribute="bottom" id="RHx-eF-7Jr"/>
+                                <constraint firstItem="pfB-Nr-TOe" firstAttribute="leading" secondItem="dho-2u-oTq" secondAttribute="leading" constant="10" id="Ur9-77-j3s"/>
+                                <constraint firstItem="pfB-Nr-TOe" firstAttribute="top" secondItem="dho-2u-oTq" secondAttribute="top" id="Yxm-9S-bnd"/>
+                            </constraints>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="afg-Ti-GIj" id="s5b-Dv-sLg"/>
+                            <outlet property="delegate" destination="afg-Ti-GIj" id="G1a-in-2rw"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="书法家列表" id="Env-qF-eYO"/>
+                    <connections>
+                        <segue destination="EjO-dy-vMa" kind="push" identifier="AuthorCollectionController" id="LbU-Yy-CBk"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="avj-wu-2fn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="608" y="873"/>
         </scene>
         <!--Author Collection Controller-->
         <scene sceneID="GAv-yl-eDc">
@@ -183,10 +345,11 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="O7a-jT-qaN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qnW-0i-QNg">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="50" height="34"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
@@ -211,6 +374,29 @@
                                 </constraints>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FooterView" id="1qV-it-Jme">
+                            <rect key="frame" x="0.0" y="50" width="600" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYJ-k7-Vz5">
+                                    <rect key="frame" x="176" y="2" width="228" height="30"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                    <state key="normal" title="点击获取更多">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="touchMore:" destination="EjO-dy-vMa" eventType="touchUpInside" id="r28-06-j0B"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="sYJ-k7-Vz5" firstAttribute="leading" secondItem="1qV-it-Jme" secondAttribute="leading" id="Etb-aD-jtn"/>
+                                <constraint firstAttribute="trailing" secondItem="sYJ-k7-Vz5" secondAttribute="trailing" id="LCS-2k-cx1"/>
+                                <constraint firstAttribute="bottom" secondItem="sYJ-k7-Vz5" secondAttribute="bottom" id="UXi-SC-Qq2"/>
+                                <constraint firstItem="sYJ-k7-Vz5" firstAttribute="top" secondItem="1qV-it-Jme" secondAttribute="top" id="idw-wW-ePE"/>
+                            </constraints>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="EjO-dy-vMa" id="M4X-XX-fsb"/>
                             <outlet property="delegate" destination="EjO-dy-vMa" id="ww8-Dq-CAZ"/>
@@ -220,7 +406,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SCE-aW-qgb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2097" y="914"/>
+            <point key="canvasLocation" x="1913" y="842"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yep-3n-0Ko">
@@ -244,7 +430,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ku-49-AKc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="576" y="427"/>
+            <point key="canvasLocation" x="-308" y="19"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="a3j-sm-y8i"/>
+        <segue reference="UaO-G8-2Ez"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -84,7 +84,11 @@ static NSString * const reuseIdentifier = @"Cell";
         [imageView sd_setImageWithURL:[NSURL URLWithString:sutItem.imgurlstr] placeholderImage:nil];
     }
     
-    cell.backgroundColor = [UIColor colorWithRed:(1-(10 * indexPath.row) / 255.0) green:(1-(20 * indexPath.row)/255.0) blue:(1-(30 * indexPath.row)/255.0) alpha:1.0f];
+//    cell.backgroundColor = [UIColor colorWithRed:(1-(10 * indexPath.row) / 255.0) green:(1-(20 * indexPath.row)/255.0) blue:(1-(30 * indexPath.row)/255.0) alpha:1.0f];
+    
+    cell.layer.borderColor = [UIColor blackColor].CGColor ;
+    cell.layer.borderWidth = 1;
+    cell.layer.masksToBounds = YES;
     
     return cell;
 }
