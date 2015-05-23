@@ -36,6 +36,12 @@ static NSString * const reuseIdentifier = @"Cell";
 
                          }];
     
+    int a = arc4random()%10;
+    if (a>4) {
+        [YouMiNewSpot showYouMiSpotAction:^(BOOL flag){
+        }];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

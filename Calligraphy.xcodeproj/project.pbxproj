@@ -11,6 +11,16 @@
 		6C59FD891B10B5F40067E83A /* AllAuthorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C59FD881B10B5F40067E83A /* AllAuthorController.m */; };
 		6C59FD8C1B10B61D0067E83A /* AllTextController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C59FD8B1B10B61D0067E83A /* AllTextController.m */; };
 		6C59FD8F1B10B9500067E83A /* DefaultReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C59FD8E1B10B9500067E83A /* DefaultReusableView.m */; };
+		6C59FD961B10DDFE0067E83A /* youmispot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C59FD951B10DDFE0067E83A /* youmispot.a */; };
+		6C59FD981B10DE1A0067E83A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C59FD971B10DE1A0067E83A /* StoreKit.framework */; };
+		6C59FD9A1B10DE220067E83A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C59FD991B10DE220067E83A /* Security.framework */; };
+		6C59FD9C1B10DE290067E83A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C59FD9B1B10DE290067E83A /* CFNetwork.framework */; };
+		6C59FD9E1B10DE350067E83A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C59FD9D1B10DE350067E83A /* SystemConfiguration.framework */; };
+		6C59FDA01B10DE3E0067E83A /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C59FD9F1B10DE3E0067E83A /* ImageIO.framework */; };
+		6C59FDA21B10DE480067E83A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C59FDA11B10DE480067E83A /* CoreMotion.framework */; };
+		6C59FDA41B10DE520067E83A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C59FDA31B10DE520067E83A /* libz.dylib */; };
+		6C59FDA61B10DE5B0067E83A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C59FDA51B10DE5B0067E83A /* libsqlite3.dylib */; };
+		6C59FDA91B10E3FF0067E83A /* SetTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C59FDA81B10E3FF0067E83A /* SetTableController.m */; };
 		FF01936A1B0DCBDB00375ED0 /* AuthorCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0193691B0DCBDB00375ED0 /* AuthorCollectionController.m */; };
 		FF1471C61B0DA906008E39C9 /* TextCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1471C51B0DA906008E39C9 /* TextCollectionController.m */; };
 		FF27EB451B0AC6C100343E72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27EB441B0AC6C100343E72 /* main.m */; };
@@ -43,6 +53,20 @@
 		6C59FD8B1B10B61D0067E83A /* AllTextController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllTextController.m; sourceTree = "<group>"; };
 		6C59FD8D1B10B9500067E83A /* DefaultReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultReusableView.h; sourceTree = "<group>"; };
 		6C59FD8E1B10B9500067E83A /* DefaultReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultReusableView.m; sourceTree = "<group>"; };
+		6C59FD921B10DDFE0067E83A /* ConfigHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigHeader.h; sourceTree = "<group>"; };
+		6C59FD931B10DDFE0067E83A /* symbols_spotconfuse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = symbols_spotconfuse.h; sourceTree = "<group>"; };
+		6C59FD941B10DDFE0067E83A /* YouMiNewSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMiNewSpot.h; sourceTree = "<group>"; };
+		6C59FD951B10DDFE0067E83A /* youmispot.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = youmispot.a; sourceTree = "<group>"; };
+		6C59FD971B10DE1A0067E83A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		6C59FD991B10DE220067E83A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		6C59FD9B1B10DE290067E83A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		6C59FD9D1B10DE350067E83A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6C59FD9F1B10DE3E0067E83A /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		6C59FDA11B10DE480067E83A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		6C59FDA31B10DE520067E83A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		6C59FDA51B10DE5B0067E83A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		6C59FDA71B10E3FF0067E83A /* SetTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetTableController.h; sourceTree = "<group>"; };
+		6C59FDA81B10E3FF0067E83A /* SetTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetTableController.m; sourceTree = "<group>"; };
 		E961CE87BF9B9508FD214E88 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FF0193681B0DCBDB00375ED0 /* AuthorCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorCollectionController.h; sourceTree = "<group>"; };
 		FF0193691B0DCBDB00375ED0 /* AuthorCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorCollectionController.m; sourceTree = "<group>"; };
@@ -73,7 +97,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C59FDA61B10DE5B0067E83A /* libsqlite3.dylib in Frameworks */,
+				6C59FDA41B10DE520067E83A /* libz.dylib in Frameworks */,
+				6C59FDA21B10DE480067E83A /* CoreMotion.framework in Frameworks */,
+				6C59FDA01B10DE3E0067E83A /* ImageIO.framework in Frameworks */,
+				6C59FD9E1B10DE350067E83A /* SystemConfiguration.framework in Frameworks */,
+				6C59FD9C1B10DE290067E83A /* CFNetwork.framework in Frameworks */,
+				6C59FD9A1B10DE220067E83A /* Security.framework in Frameworks */,
+				6C59FD981B10DE1A0067E83A /* StoreKit.framework in Frameworks */,
 				26BB455BE12FB100E0C84D4D /* libPods.a in Frameworks */,
+				6C59FD961B10DDFE0067E83A /* youmispot.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,9 +123,36 @@
 		442758FF2A378494CDD573A1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6C59FDA51B10DE5B0067E83A /* libsqlite3.dylib */,
+				6C59FDA31B10DE520067E83A /* libz.dylib */,
+				6C59FDA11B10DE480067E83A /* CoreMotion.framework */,
+				6C59FD9F1B10DE3E0067E83A /* ImageIO.framework */,
+				6C59FD9D1B10DE350067E83A /* SystemConfiguration.framework */,
+				6C59FD9B1B10DE290067E83A /* CFNetwork.framework */,
+				6C59FD991B10DE220067E83A /* Security.framework */,
+				6C59FD971B10DE1A0067E83A /* StoreKit.framework */,
 				20322D1FD533D47BE6336E97 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6C59FD901B10DDFE0067E83A /* spotlib */ = {
+			isa = PBXGroup;
+			children = (
+				6C59FD911B10DDFE0067E83A /* include */,
+				6C59FD951B10DDFE0067E83A /* youmispot.a */,
+			);
+			path = spotlib;
+			sourceTree = SOURCE_ROOT;
+		};
+		6C59FD911B10DDFE0067E83A /* include */ = {
+			isa = PBXGroup;
+			children = (
+				6C59FD921B10DDFE0067E83A /* ConfigHeader.h */,
+				6C59FD931B10DDFE0067E83A /* symbols_spotconfuse.h */,
+				6C59FD941B10DDFE0067E83A /* YouMiNewSpot.h */,
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
 		FA5928E2DBFFF49CC0833820 /* Pods */ = {
@@ -126,6 +186,8 @@
 				6C59FD8B1B10B61D0067E83A /* AllTextController.m */,
 				6C59FD871B10B5F40067E83A /* AllAuthorController.h */,
 				6C59FD881B10B5F40067E83A /* AllAuthorController.m */,
+				6C59FDA71B10E3FF0067E83A /* SetTableController.h */,
+				6C59FDA81B10E3FF0067E83A /* SetTableController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -153,6 +215,7 @@
 		FF27EB411B0AC6C100343E72 /* Calligraphy */ = {
 			isa = PBXGroup;
 			children = (
+				6C59FD901B10DDFE0067E83A /* spotlib */,
 				FF27EB461B0AC6C100343E72 /* AppDelegate.h */,
 				FF27EB471B0AC6C100343E72 /* AppDelegate.m */,
 				FF68ACB91B0C3AB800BAB3E7 /* DataItem.h */,
@@ -343,6 +406,7 @@
 				6C59FD8F1B10B9500067E83A /* DefaultReusableView.m in Sources */,
 				6C59FD8C1B10B61D0067E83A /* AllTextController.m in Sources */,
 				FF68ACBB1B0C3AB800BAB3E7 /* DataItem.m in Sources */,
+				6C59FDA91B10E3FF0067E83A /* SetTableController.m in Sources */,
 				FF27EB6B1B0AC91E00343E72 /* Service.m in Sources */,
 				FF01936A1B0DCBDB00375ED0 /* AuthorCollectionController.m in Sources */,
 				FF27EB481B0AC6C100343E72 /* AppDelegate.m in Sources */,
@@ -486,6 +550,10 @@
 				INFOPLIST_FILE = Calligraphy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/spotlib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c804dc9c-5aff-4f49-9524-051528990435";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -504,6 +572,10 @@
 				INFOPLIST_FILE = Calligraphy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/spotlib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c804dc9c-5aff-4f49-9524-051528990435";
 				TARGETED_DEVICE_FAMILY = "1,2";

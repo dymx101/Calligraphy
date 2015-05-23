@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import <UMSocial.h>
+
 @interface AppDelegate ()
 
 @end
@@ -18,10 +20,21 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    NSString *appid = @"5b35c80d69c91d36";
+    NSString *secretId = @"2d73e963e3efdafe";
+    [YouMiNewSpot initYouMiDeveloperParams:appid YM_SecretId:secretId];
     
-    setenv("XcodeColors", "YES", 0);
-    [DDLog addLogger:[DDTTYLogger sharedInstance]];
-    [[DDTTYLogger sharedInstance] setColorsEnabled:YES];// 启用颜色区分
+    //使用前先初始化一下插屏
+    [YouMiNewSpot initYouMiDeveLoperSpot:kSPOTSpotTypeBoth];//填上你对应的横竖屏模式
+    
+    
+    [MobClick startWithAppkey:kUMengKey reportPolicy:BATCH   channelId:@"AppStore"];
+    [UMSocialData setAppKey:kUMengKey];
+    
+    
+//    setenv("XcodeColors", "YES", 0);
+//    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+//    [[DDTTYLogger sharedInstance] setColorsEnabled:YES];// 启用颜色区分
     
     return YES;
 }

@@ -13,8 +13,22 @@
 #import <CocoaLumberjack.h>
 #import <SVProgressHUD.h>
 #import <MobClick.h>
+#import "ConfigHeader.h"
 
 #define kBaseURLString @"http://shufa.m.supfree.net/"
+
+
+
+/**
+ *  app 软件在AppStore上的id
+ */
+#define kAppID @"997635332"
+
+/**
+ *  友盟上的key
+ *
+ */
+#define kUMengKey @"5560ace867e58e81270046d5"
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
