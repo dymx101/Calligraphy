@@ -7,6 +7,7 @@ pod 'SVProgressHUD', '~> 1.1.3'
 pod 'UMengAnalytics-NO-IDFA', '~> 3.4.7'
 pod 'UMengSocial', '~> 4.2.2'
 pod 'SDWebImage', '~> 3.7.2'
+pod 'SimplePurchase', '~> 0.0.1'
 
 target :CalligraphyTests, :exclusive => true do
   # pod 'Kiwi'

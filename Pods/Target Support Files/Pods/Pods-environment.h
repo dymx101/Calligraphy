@@ -96,6 +96,12 @@
 #define COCOAPODS_VERSION_MINOR_SVProgressHUD 1
 #define COCOAPODS_VERSION_PATCH_SVProgressHUD 3
 
+// SimplePurchase
+#define COCOAPODS_POD_AVAILABLE_SimplePurchase
+#define COCOAPODS_VERSION_MAJOR_SimplePurchase 0
+#define COCOAPODS_VERSION_MINOR_SimplePurchase 0
+#define COCOAPODS_VERSION_PATCH_SimplePurchase 1
+
 // UMengAnalytics-NO-IDFA
 #define COCOAPODS_POD_AVAILABLE_UMengAnalytics_NO_IDFA
 #define COCOAPODS_VERSION_MAJOR_UMengAnalytics_NO_IDFA 3

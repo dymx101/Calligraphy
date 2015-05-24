@@ -8,6 +8,7 @@
 
 #import "SetTableController.h"
 #import <UMSocial.h>
+#import <SimplePurchase.h>
 @interface SetTableController ()<UMSocialUIDelegate>
 
 @end
@@ -43,6 +44,30 @@
                                          shareImage:nil
                                     shareToSnsNames:[NSArray arrayWithObjects:UMShareToEmail,UMShareToSms,UMShareToSina,UMShareToTencent,nil]
                                            delegate:self];
+    }
+    else if (indexPath.section == 2 && indexPath.row == 0) {
+        
+//        [SimplePurchase buyProduct:kIAPClear block:^(NSError *error)
+//         {
+//             if (error)
+//             {
+//                 [[[UIAlertView alloc] initWithTitle:@"Purchase Error"
+//                                             message:error.localizedDescription
+//                                            delegate:nil
+//                                   cancelButtonTitle:@"OK"
+//                                   otherButtonTitles:nil] show];
+//             }else {
+//                 
+//             }
+//         }];
+        
+        [SimplePurchase addObserverForProduct:kIAPClear
+                                        block:^(SKPaymentTransaction *transaction)
+        {
+            // the purchase has been made; make a record of it and perform whatever
+            // changes neccessary in the app.
+        }];
+        
     }
 }
 
