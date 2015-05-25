@@ -30,19 +30,19 @@ static NSString * const reuseIdentifier = @"Cell";
     pageInt = 1;
     
     _dataArray = [NSMutableArray array];
+    
+    [SVProgressHUD showWithStatus:@"正在加载..."];
+    
     [Service AllTextPage:pageInt withBlock:^(NSArray *array, NSError *error) {
         [_dataArray addObjectsFromArray:array];
         
         [self.collectionView reloadData];
         
+        [SVProgressHUD dismiss];
+        
     }];
     
     
-    int a = arc4random()%10;
-    if (a>4) {
-        [YouMiNewSpot showYouMiSpotAction:^(BOOL flag){
-        }];
-    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -133,9 +133,15 @@ static NSString * const reuseIdentifier = @"Cell";
 - (IBAction)touchMore:(UIButton *)sender {
     
     sender.enabled = NO;
+    
+    [SVProgressHUD showWithStatus:@"正在加载..."];
+    
     [Service AllTextPage:++pageInt withBlock:^(NSArray *array, NSError *error) {
         
+        [SVProgressHUD dismiss];
+        
         if (_dataArray.count < 240-1) {
+             [sender setTitle:@"没有更多了" forState:UIControlStateDisabled];
             return;
         }
         

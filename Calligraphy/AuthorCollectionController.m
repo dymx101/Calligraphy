@@ -26,6 +26,8 @@ static NSString * const reuseIdentifier = @"Cell";
     self.title = _selectItem.author;
     _dataArray = [NSMutableArray array];
     pageInt = 1;
+    
+    [SVProgressHUD showWithStatus:@"正在加载..."];
     [Service CalligraphyFromAuthor:_selectItem.authorurl
                               page:pageInt
                          withBlock:^(NSArray *posts, NSError *error) {
@@ -33,15 +35,18 @@ static NSString * const reuseIdentifier = @"Cell";
                              _dataArray = [NSMutableArray arrayWithArray:posts];
                              [self.collectionView reloadData];
                              
+                             [SVProgressHUD dismiss];
 
                          }];
     
-    int a = arc4random()%10;
-    if (a>4) {
-        [YouMiNewSpot showYouMiSpotAction:^(BOOL flag){
-        }];
+    if (![UserData iAPClear]) {
+        int a = arc4random()%10;
+        if (a>4) {
+            [YouMiNewSpot showYouMiSpotAction:^(BOOL flag){
+            }];
+        }
     }
-    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -107,12 +112,19 @@ static NSString * const reuseIdentifier = @"Cell";
 - (IBAction)touchMore:(UIButton *)sender {
     
     sender.enabled = NO;
+    
+    [SVProgressHUD showWithStatus:@"正在加载..."];
+    
     [Service CalligraphyFromAuthor:_selectItem.authorurl
                               page:++pageInt
                          withBlock:^(NSArray *posts, NSError *error) {
                              
+                             [SVProgressHUD dismiss];
                              
                              if (_dataArray.count < 50-1) {
+                                 
+                                 [sender setTitle:@"没有更多了" forState:UIControlStateDisabled];
+                                 
                                  return;
                              }
                              

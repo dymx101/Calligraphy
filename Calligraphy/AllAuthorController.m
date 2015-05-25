@@ -21,16 +21,15 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     _dataDic = [NSDictionary dictionary];
+    
+    [SVProgressHUD showWithStatus:@"正在加载..."];
+    
     [Service AllAuthor:^(NSDictionary *dic, NSError *error) {
         _dataDic = dic;
         [self.collectionView reloadData];
+        [SVProgressHUD dismiss];
     }];
     
-    int a = arc4random()%10;
-    if (a>4) {
-        [YouMiNewSpot showYouMiSpotAction:^(BOOL flag){
-        }];
-    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,8 +84,6 @@ static NSString * const reuseIdentifier = @"Cell";
     titleLabel.text = item.author;
     titleLabel.font = [UIFont systemFontOfSize:18];
 
-    
-    
     
     return cell;
 }

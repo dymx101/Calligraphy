@@ -32,6 +32,7 @@
 		FF27EB5F1B0AC6C100343E72 /* CalligraphyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27EB5E1B0AC6C100343E72 /* CalligraphyTests.m */; };
 		FF27EB6B1B0AC91E00343E72 /* Service.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27EB6A1B0AC91E00343E72 /* Service.m */; };
 		FF68ACBB1B0C3AB800BAB3E7 /* DataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FF68ACBA1B0C3AB800BAB3E7 /* DataItem.m */; };
+		FFD4393A1B130790006C7FD0 /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD439391B130790006C7FD0 /* UserData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,8 @@
 		FF68ACB81B0C2C5E00BAB3E7 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		FF68ACB91B0C3AB800BAB3E7 /* DataItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataItem.h; sourceTree = "<group>"; };
 		FF68ACBA1B0C3AB800BAB3E7 /* DataItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataItem.m; sourceTree = "<group>"; };
+		FFD439381B130790006C7FD0 /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
+		FFD439391B130790006C7FD0 /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +223,8 @@
 				FF27EB471B0AC6C100343E72 /* AppDelegate.m */,
 				FF68ACB91B0C3AB800BAB3E7 /* DataItem.h */,
 				FF68ACBA1B0C3AB800BAB3E7 /* DataItem.m */,
+				FFD439381B130790006C7FD0 /* UserData.h */,
+				FFD439391B130790006C7FD0 /* UserData.m */,
 				FF1471C31B0DA8C4008E39C9 /* ViewController */,
 				FF1471C21B0D99C7008E39C9 /* View */,
 				FF27EB681B0AC8FE00343E72 /* Service */,
@@ -412,6 +417,7 @@
 				FF27EB481B0AC6C100343E72 /* AppDelegate.m in Sources */,
 				FF1471C61B0DA906008E39C9 /* TextCollectionController.m in Sources */,
 				FF27EB451B0AC6C100343E72 /* main.m in Sources */,
+				FFD4393A1B130790006C7FD0 /* UserData.m in Sources */,
 				6C59FD891B10B5F40067E83A /* AllAuthorController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

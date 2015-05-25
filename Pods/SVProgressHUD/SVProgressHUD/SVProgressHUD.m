@@ -281,7 +281,7 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
         }
 
         SVProgressHUDRingThickness = 2;
-        SVProgressHUDDefaultMaskType = SVProgressHUDMaskTypeNone;
+        SVProgressHUDDefaultMaskType = SVProgressHUDMaskTypeBlack;
     }
 	
     return self;

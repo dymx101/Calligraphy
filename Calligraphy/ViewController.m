@@ -30,12 +30,14 @@ static NSString * const reuseIdentifier = @"GradientCell";
     
     _dataArray = [NSMutableArray array];
     
+    [SVProgressHUD showWithStatus:@"正在加载..."];
     //获取默认页
     [Service DefaultTextAndAuthor:^(NSMutableArray *array, NSError *error) {
         
         [_dataArray addObjectsFromArray:array];
         
         [_mainCollection reloadData];
+        [SVProgressHUD dismiss];
         
     }];
 

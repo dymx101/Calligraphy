@@ -30,20 +30,20 @@ static NSString * const reuseIdentifier = @"Cell";
     _dataArray = [NSMutableArray array];
     
 
-    
+    [SVProgressHUD showWithStatus:@"正在加载..."];
     [Service SearchText:_searchStr parameters:nil withBlock:^(NSArray *posts, NSError *error) {
         _dataArray = [NSMutableArray arrayWithArray:posts];
         [self.collectionView reloadData];
-
+        [SVProgressHUD dismiss];
     }];
     
-    
-    int a = arc4random()%10;
-    if (a>4) {
-        [YouMiNewSpot showYouMiSpotAction:^(BOOL flag){
-        }];
+    if (![UserData iAPClear]) {
+        int a = arc4random()%10;
+        if (a>4) {
+            [YouMiNewSpot showYouMiSpotAction:^(BOOL flag){
+            }];
+        }
     }
-    
 }
 
 - (void)didReceiveMemoryWarning {
