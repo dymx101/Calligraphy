@@ -40,11 +40,11 @@ static NSString * const reuseIdentifier = @"Cell";
                          }];
     
     if (![UserData iAPClear]) {
-        int a = arc4random()%10;
-        if (a>4) {
-            [YouMiNewSpot showYouMiSpotAction:^(BOOL flag){
-            }];
-        }
+        //        int a = arc4random()%10;
+        //        if (a>4) {
+        [YouMiNewSpot showYouMiSpotAction:^(BOOL flag){
+        }];
+        //        }
     }
 
 }

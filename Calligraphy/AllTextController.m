@@ -42,7 +42,8 @@ static NSString * const reuseIdentifier = @"Cell";
         
     }];
     
-    
+//    [YouMiNewSpot showYouMiSpotAction:^(BOOL flag){
+//    }];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -9,7 +9,13 @@
 #import "SetTableController.h"
 #import <UMSocial.h>
 #import <SimplePurchase.h>
-@interface SetTableController ()<UMSocialUIDelegate>
+@interface SetTableController ()<UMSocialUIDelegate> {
+    
+    __weak IBOutlet UILabel *clearLabel;
+    
+    
+    
+}
 
 @end
 
@@ -17,6 +23,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if ([UserData iAPClear]) {
+        clearLabel.text = @"回复购买";
+    }
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -59,6 +70,7 @@
              }else {
                  
                  [UserData setiAPClear];
+                 clearLabel.text = @"回复购买";
              }
          }];
         
