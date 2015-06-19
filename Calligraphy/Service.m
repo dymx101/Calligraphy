@@ -413,7 +413,6 @@
                            parameters:(id)parameters
                             withBlock:(void (^)(NSArray *posts, NSError *error))block {
     
-#warning
     return [[Service sharedClient] GET:aText
                             parameters:parameters
                                success:^(NSURLSessionDataTask *task, id responseObject) {

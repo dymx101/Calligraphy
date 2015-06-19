@@ -510,7 +510,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m6N-hM-RHy" id="9F2-27-1r5">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="去广告" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QjN-pj-aEM">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="去广告 : $1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QjN-pj-aEM">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -527,7 +527,13 @@
                             <outlet property="delegate" destination="ge0-JZ-ZZI" id="XYX-Kh-OJb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="设置" id="vbl-ct-Ksp"/>
+                    <navigationItem key="navigationItem" title="设置" id="vbl-ct-Ksp">
+                        <barButtonItem key="rightBarButtonItem" title="恢复购买" id="Zm9-us-EYx">
+                            <connections>
+                                <action selector="touchRestore:" destination="ge0-JZ-ZZI" id="0jB-EI-VIt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="clearLabel" destination="QjN-pj-aEM" id="ZhS-Gw-nkM"/>
                     </connections>

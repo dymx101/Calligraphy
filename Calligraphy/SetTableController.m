@@ -24,9 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if ([UserData iAPClear]) {
-        clearLabel.text = @"回复购买";
-    }
+//    if ([UserData iAPClear]) {
+//        clearLabel.text = @"回复购买";
+//    }
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -34,6 +34,19 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+- (IBAction)touchRestore:(id)sender {
+    
+    if ([UserData iAPClear]) {
+        [self buyIAPClear];
+    }else {
+        [[[UIAlertView alloc] initWithTitle:@"提示"
+                                    message:@"没有购买记录"
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+    }
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -58,21 +71,7 @@
     }
     else if (indexPath.section == 2 && indexPath.row == 0) {
         
-        [SimplePurchase buyProduct:kIAPClear block:^(NSError *error)
-         {
-             if (error)
-             {
-                 [[[UIAlertView alloc] initWithTitle:@"Purchase Error"
-                                             message:error.localizedDescription
-                                            delegate:nil
-                                   cancelButtonTitle:@"OK"
-                                   otherButtonTitles:nil] show];
-             }else {
-                 
-                 [UserData setiAPClear];
-                 clearLabel.text = @"回复购买";
-             }
-         }];
+        [self buyIAPClear];
         
 //        [SimplePurchase addObserverForProduct:kIAPClear
 //                                        block:^(SKPaymentTransaction *transaction)
@@ -82,6 +81,27 @@
 //        }];
         
     }
+}
+
+- (void)buyIAPClear {
+    
+    [SVProgressHUD show];
+    [SimplePurchase buyProduct:kIAPClear block:^(NSError *error)
+     {
+         if (error)
+         {
+             [[[UIAlertView alloc] initWithTitle:@"Purchase Error"
+                                         message:error.localizedDescription
+                                        delegate:nil
+                               cancelButtonTitle:@"OK"
+                               otherButtonTitles:nil] show];
+         }else {
+             
+             [UserData setiAPClear];
+             //                 clearLabel.text = @"回复购买";
+         }
+         [SVProgressHUD dismiss];
+     }];
 }
 
 - (void)didReceiveMemoryWarning {
